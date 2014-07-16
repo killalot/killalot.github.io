@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Spring | Ticnfae]]></title>
-  <link href="http://ticnfae/ticnfae/blog/categories/spring/atom.xml" rel="self"/>
-  <link href="http://ticnfae/ticnfae/"/>
-  <updated>2014-07-16T21:06:48+01:00</updated>
-  <id>http://ticnfae/ticnfae/</id>
+  <link href="http://killalot.github.io/blog/categories/spring/atom.xml" rel="self"/>
+  <link href="http://killalot.github.io/"/>
+  <updated>2014-07-16T22:16:36+01:00</updated>
+  <id>http://killalot.github.io/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hibernate Multi Tenancy With Spring]]></title>
-    <link href="http://ticnfae/ticnfae/blog/2014/07/16/hibernate-multi-tenancy-with-spring/"/>
+    <link href="http://killalot.github.io/blog/2014/07/16/hibernate-multi-tenancy-with-spring/"/>
     <updated>2014-07-16T20:18:54+01:00</updated>
-    <id>http://ticnfae/ticnfae/blog/2014/07/16/hibernate-multi-tenancy-with-spring</id>
+    <id>http://killalot.github.io/blog/2014/07/16/hibernate-multi-tenancy-with-spring</id>
     <content type="html"><![CDATA[<h1>First blog post</h1>
 
 ]]></content>
