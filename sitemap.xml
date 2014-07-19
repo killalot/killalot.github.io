@@ -3,29 +3,29 @@
   
   
   <url>
-    <loc>http://killalot.github.io/blog/2014/07/16/hibernate-multi-tenancy-with-spring/</loc>
+    <loc>www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring</loc>
     <lastmod>2014-07-16T20:18:54+01:00</lastmod>
     <priority>0.8</priority>
   </url>
   
   
   <url>
-    <loc>http://killalot.github.io/</loc>
-    <lastmod>2014-07-17T21:47:30+01:00</lastmod>
+    <loc>www.ticnfae.co.uk/</loc>
+    <lastmod>2014-07-20T00:33:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
-    <loc>http://killalot.github.io/blog/archives/</loc>
-    <lastmod>2014-07-17T21:47:30+01:00</lastmod>
+    <loc>www.ticnfae.co.uk/blog/archives/</loc>
+    <lastmod>2014-07-20T00:33:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://killalot.github.io/about/</loc>
-    <lastmod>2014-07-17T21:47:30+01:00</lastmod>
+    <loc>www.ticnfae.co.uk/about/</loc>
+    <lastmod>2014-07-20T00:33:02+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

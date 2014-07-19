@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://killalot.github.io/sitemap.xml 
+Sitemap: www.ticnfae.co.uk/sitemap.xml 

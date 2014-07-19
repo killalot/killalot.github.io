@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Multi Tenancy | Ticnfae]]></title>
-  <link href="www.ticnfae.co.uk/blog/categories/multi-tenancy/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Java | Ticnfae]]></title>
+  <link href="www.ticnfae.co.uk/blog/categories/java/atom.xml" rel="self"/>
   <link href="www.ticnfae.co.uk/"/>
   <updated>2014-07-20T00:33:02+01:00</updated>
   <id>www.ticnfae.co.uk/</id>
