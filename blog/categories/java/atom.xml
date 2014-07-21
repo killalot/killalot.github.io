@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Ticnfae]]></title>
   <link href="www.ticnfae.co.uk/blog/categories/java/atom.xml" rel="self"/>
   <link href="www.ticnfae.co.uk/"/>
-  <updated>2014-07-20T00:33:02+01:00</updated>
+  <updated>2014-07-21T22:21:12+01:00</updated>
   <id>www.ticnfae.co.uk/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
@@ -12,6 +12,69 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Accessing Java Properties Outside Spring Beans]]></title>
+    <link href="www.ticnfae.co.uk/blog/2014/07/21/accessing-java-properties-outside-spring-beans"/>
+    <updated>2014-07-21T06:48:04+01:00</updated>
+    <id>www.ticnfae.co.uk/blog/2014/07/21/accessing-java-properties-outside-spring-beans</id>
+    <content type="html"><![CDATA[<p>This is a kind of follow up from my <a href="/blog/2014/07/16/hibernate-multi-tenancy-with-spring">previous post</a>. In which I describe an example implementation of a Hibernate MultiTenantConnectionProvider and CurrentTenantIdentifierResolver. Later after writing I thought it would better to abstract the database configuration in these two files into a .properties file - so that the properties can be reused in other areas of the application such as when authenicating a user.</p>
+
+
+
+
+<p>Normally when you wish to use a .properties file in a spring application, you define a property placeholder in your context xml (or Java config) like so:</p>
+
+
+<pre><code class="xml">&lt;context:property-placeholder location="classpath:filename.properties" /&gt;
+</code></pre>
+
+<p>Then if you want to access the properties in a spring bean , you can use the @Value annotation in the bean class to inject the required property.</p>
+
+
+<pre><code class="java">@Value("${property.value}")
+private String property;
+</code></pre>
+
+<p>Now this is an easy way to access your properties, however there is a situation which I've discovered that requires a different approach. If the class you wish to pass the properties to does not get initialised as a spring bean - such as the MultiTenantConnectionProvider in my previous post, then you cannot use the @Value annotation. In this case it is because only the class name is given to hibernate which it will then make an instance of internally.</p>
+
+
+
+
+<p>A workaround for this is to access the properties file using a ClassLoader inside the MultiTenantConnectionProvider constructor.</p>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (MultiTenantConnectionProviderConstructor.java)</span> <a href='/downloads/code/accessing-java-properties-outside-spring-beans/MultiTenantConnectionProviderConstructor.java'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="kd">private</span> <span class="n">Properties</span> <span class="n">properties</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="nf">MultiTenantConnectionProvider</span><span class="o">(){</span>
+</span><span class='line'>      <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Properties</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">ClassLoader</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getContextClassLoader</span><span class="o">();</span>
+</span><span class='line'>      <span class="n">InputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">&quot;filename.properties&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">stream</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">defaultDataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ComboPooledDataSource</span><span class="o">(</span><span class="n">properties</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;shared_database.name&quot;</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>     <span class="c1">// rest of constructor omitted </span>
+</span><span class='line'>  <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>This way you still access your properties anywhere inside a non-bean class.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hibernate Multi Tenancy With Spring]]></title>
