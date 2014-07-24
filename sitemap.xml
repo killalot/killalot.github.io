@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>www.ticnfae.co.uk/blog/2014/07/23/combining-jasper-reports-in-a-spring-controller</loc>
+    <lastmod>2014-07-23T20:37:51+01:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>www.ticnfae.co.uk/blog/2014/07/21/accessing-java-properties-outside-spring-beans</loc>
     <lastmod>2014-07-21T06:48:04+01:00</lastmod>
     <priority>0.8</priority>
@@ -17,21 +23,21 @@
   
   <url>
     <loc>www.ticnfae.co.uk/</loc>
-    <lastmod>2014-07-21T22:21:12+01:00</lastmod>
+    <lastmod>2014-07-24T22:53:52+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>www.ticnfae.co.uk/blog/archives/</loc>
-    <lastmod>2014-07-21T22:21:12+01:00</lastmod>
+    <lastmod>2014-07-24T22:53:52+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>www.ticnfae.co.uk/about/</loc>
-    <lastmod>2014-07-21T22:21:12+01:00</lastmod>
+    <lastmod>2014-07-24T22:53:52+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
