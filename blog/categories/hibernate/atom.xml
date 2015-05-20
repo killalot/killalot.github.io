@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Hibernate | Ticnfae]]></title>
   <link href="www.ticnfae.co.uk/blog/categories/hibernate/atom.xml" rel="self"/>
   <link href="www.ticnfae.co.uk/"/>
-  <updated>2014-08-08T21:21:29+01:00</updated>
+  <updated>2015-05-20T21:57:36+01:00</updated>
   <id>www.ticnfae.co.uk/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
@@ -21,6 +21,7 @@
     <content type="html"><![CDATA[<p>When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possible implementation of the separate database approach.</p>
 
 
+<!--more-->
 
 
 <h2>Prerequisites</h2>
@@ -63,7 +64,7 @@
 <p>The shared database will need a minimum of 2 tables: 1 to store the users and another to store the databases. Here is two entity classes to represent this.</p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (Database.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/Database.java'>download</a></figcaption>
+<p><figure class='code'><figcaption><span> (Database.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/Database.java'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -104,9 +105,9 @@
 </span><span class='line'>
 </span><span class='line'>	<span class="c1">// getters and setters omitted</span>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (ServerUser.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/ServerUser.java'>download</a></figcaption>
+<p><figure class='code'><figcaption><span> (ServerUser.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/ServerUser.java'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -135,7 +136,7 @@
 </span><span class='line'>	<span class="nd">@ManyToOne</span>
 </span><span class='line'>	<span class="kd">private</span> <span class="n">Database</span> <span class="n">database</span><span class="o">;</span>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>As an alternative to the shared database you could provide each tenant with a separate URL or make the users provide additional information during login, but I won't go into details on how to do this here.</p>
 
@@ -148,7 +149,7 @@
 <p>Lets move on to configuring hibernate for multi-tenancy. In this case I will be using XML but it can be easily converted to a Java configuration class. First we'll look at what the configuration may look without multi-tenancy setup so you can see the difference.</p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (datasources.xml)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/datasources.xml'>download</a></figcaption>
+<p><figure class='code'><figcaption><span> (datasources.xml)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/datasources.xml'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -197,9 +198,9 @@
 </span><span class='line'>		<span class="nt">&lt;/props&gt;</span>
 </span><span class='line'>	<span class="nt">&lt;/property&gt;</span>
 </span><span class='line'><span class="nt">&lt;/bean&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (datasources-multi-tenancy.xml)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/datasources-multi-tenancy.xml'>download</a></figcaption>
+<p><figure class='code'><figcaption><span> (datasources-multi-tenancy.xml)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/datasources-multi-tenancy.xml'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -222,7 +223,7 @@
 </span><span class='line'>			<span class="nt">&lt;/props&gt;</span>
 </span><span class='line'>		<span class="nt">&lt;/property&gt;</span>
 </span><span class='line'>	<span class="nt">&lt;/bean&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>As you can see, additional properties have been provided to the session factory so that it is configured for multi-tenancy. You can refer to the 'Hibernate Multi-tenancy' link in the references to understand what these do.</p>
 
@@ -237,7 +238,7 @@
 <h2>CurrentTenantIdentifierResolver</h2>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (CurrentTenantIdentifierResolverImpl.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/CurrentTenantIdentifierResolverImpl.java'>download</a></figcaption>
+<p><figure class='code'><figcaption><span> (CurrentTenantIdentifierResolverImpl.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/CurrentTenantIdentifierResolverImpl.java'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -280,7 +281,7 @@
 </span><span class='line'>	<span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>This class is used by the MultiTenantConnectionProvider to ascertain the correct tenant identifier for the current hibernate session that has been opened. In this case spring security has been utilised to obtain the database name, which is the tenant identifier that is being used. If the current user is not authenicated, such as when first logging into the server, then the shared database name is given as the identifier. </p>
 
@@ -295,7 +296,7 @@
 <h2>MultiTenantConnectionProvider</h2>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (MultiTenantConnectionProvider.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/MultiTenantConnectionProvider.java'>download</a></figcaption>
+<p><figure class='code'><figcaption><span> (MultiTenantConnectionProvider.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/MultiTenantConnectionProvider.java'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -398,7 +399,7 @@
 </span><span class='line'>	<span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>This class provides hibernate with the correct datasource depending on the value of the tenant identifier given to it. During initialisation the class creates the default pooled datasource which is pointing to the shared database. The selectDataSource method uses the static method pooledDataSourceByName of the C3P0Registry to obtain the datasource. If a datasource does not exist for the tenant identifier, then it is lazy initialised and returned. The tenant identifier is provided to the datasource when it is created so that it can be passed to the C3P0Registry as a lookup field when it is needed to be retreived again.</p>
 

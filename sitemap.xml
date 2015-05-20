@@ -1,52 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  
   <url>
     <loc>www.ticnfae.co.uk/blog/2014/08/01/scanning-the-file-system-with-node-dot-js-and-mongodb</loc>
     <lastmod>2014-08-01T11:32:20+01:00</lastmod>
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>www.ticnfae.co.uk/blog/2014/07/23/combining-jasper-reports-in-a-spring-controller</loc>
     <lastmod>2014-07-23T20:37:51+01:00</lastmod>
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>www.ticnfae.co.uk/blog/2014/07/21/accessing-java-properties-outside-spring-beans</loc>
     <lastmod>2014-07-21T06:48:04+01:00</lastmod>
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring</loc>
     <lastmod>2014-07-16T20:18:54+01:00</lastmod>
-    <priority>0.8</priority>
   </url>
-  
-  
   <url>
     <loc>www.ticnfae.co.uk/</loc>
-    <lastmod>2014-08-08T21:21:29+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
-  
   <url>
     <loc>www.ticnfae.co.uk/blog/archives/</loc>
-    <lastmod>2014-08-08T21:21:29+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>www.ticnfae.co.uk/about/</loc>
-    <lastmod>2014-08-08T21:21:29+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
-  
-  
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/spring/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/hibernate/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/multi-tenancy/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/java/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/4/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/properties/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/spring/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/jasper/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/node-dot-js/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/mongodb/</loc>
+  </url>
+  <url>
+    <loc>www.ticnfae.co.uk/blog/categories/file-scanning/</loc>
+  </url>
 </urlset>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Jasper | Ticnfae]]></title>
   <link href="www.ticnfae.co.uk/blog/categories/jasper/atom.xml" rel="self"/>
   <link href="www.ticnfae.co.uk/"/>
-  <updated>2014-08-08T21:21:29+01:00</updated>
+  <updated>2015-05-20T21:57:36+01:00</updated>
   <id>www.ticnfae.co.uk/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>I have come across a scenario where I was required to combine multiple instances of the same Jasper report into a single pdf file. So here is a Spring controller that demonstrates this. I have also included a method for printing a single report as well so you can see the difference.</p>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (CombineReportsController.java)</span> <a href='/downloads/code/combining-jasper-reports-in-a-spring-controller/CombineReportsController.java'>download</a></figcaption>
+<p><figure class='code'><figcaption><span> (CombineReportsController.java)</span> <a href='/downloads/code/combining-jasper-reports-in-a-spring-controller/CombineReportsController.java'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -112,7 +112,7 @@
 </span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">ModelAndView</span><span class="o">(</span><span class="s">&quot;entityPrintSingle&quot;</span><span class="o">,</span> <span class="n">modelMap</span><span class="o">);</span>
 </span><span class='line'>    <span class="o">}</span>
 </span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>The main difference between the 2 methods is that in the printSingle() method, Spring exports the Jasper report itself using the returned ModelAndView object. However the printSelected() method is performing the export manually in order to provide the list of Jasper reports to the exporter.</p>
 

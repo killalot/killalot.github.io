@@ -4,7 +4,7 @@
   <title><![CDATA[Category: File Scanning | Ticnfae]]></title>
   <link href="www.ticnfae.co.uk/blog/categories/file-scanning/atom.xml" rel="self"/>
   <link href="www.ticnfae.co.uk/"/>
-  <updated>2014-08-08T21:21:29+01:00</updated>
+  <updated>2015-05-20T21:57:36+01:00</updated>
   <id>www.ticnfae.co.uk/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
@@ -41,7 +41,7 @@
 <p>As an experiment I decided to I see how I could utilise Node.js event based programming to scan through a file system and then use MongoDB to store the data which can then be looked at later or added to.</p>
 
 <p>The code is contained in a single Javascript file run through Node.js on the command line:
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (fileIndexer.js)</span> <a href='/downloads/code/scanning-the-file-system-with-nodejs/fileIndexer.js'>download</a></figcaption>
+<figure class='code'><figcaption><span> (fileIndexer.js)</span> <a href='/downloads/code/scanning-the-file-system-with-nodejs/fileIndexer.js'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -232,7 +232,7 @@
 </span><span class='line'>	<span class="c1">// start the scanning </span>
 </span><span class='line'>	<span class="nx">scanDirectory</span><span class="p">(</span><span class="nx">startingDirectory</span><span class="p">);</span>
 </span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <h2>Further reading</h2>
 

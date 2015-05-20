@@ -4,7 +4,7 @@
   <title><![CDATA[Ticnfae]]></title>
   <link href="www.ticnfae.co.uk/atom.xml" rel="self"/>
   <link href="www.ticnfae.co.uk/"/>
-  <updated>2014-08-08T21:21:29+01:00</updated>
+  <updated>2015-05-20T21:57:36+01:00</updated>
   <id>www.ticnfae.co.uk/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
@@ -379,9 +379,10 @@
 
 
 
+<!--more-->
+
+
 <p>Normally when you wish to use a .properties file in a spring application, you define a property placeholder in your context xml (or Java config) like so:</p>
-
-
 
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -403,7 +404,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Now this is an easy way to access your properties, however there is a situation which I&#8217;ve discovered that requires a different approach. If the class you wish to pass the properties to does not get initialised as a spring bean - such as the MultiTenantConnectionProvider in my previous post, then you cannot use the @Value annotation. In this case it is because only the class name is given to hibernate which it will then make an instance of internally.</p>
+<p>Now this is an easy way to access your properties, however there is a situation which I've discovered that requires a different approach. If the class you wish to pass the properties to does not get initialised as a spring bean - such as the MultiTenantConnectionProvider in my previous post, then you cannot use the @Value annotation. In this case it is because only the class name is given to hibernate which it will then make an instance of internally.</p>
 
 
 
@@ -456,6 +457,7 @@
     <content type="html"><![CDATA[<p>When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possible implementation of the separate database approach.</p>
 
 
+<!--more-->
 
 
 <h2>Prerequisites</h2>
@@ -580,7 +582,7 @@
 
 
 
-<p>As an alternative to the shared database you could provide each tenant with a separate URL or make the users provide additional information during login, but I won&#8217;t go into details on how to do this here.</p>
+<p>As an alternative to the shared database you could provide each tenant with a separate URL or make the users provide additional information during login, but I won't go into details on how to do this here.</p>
 
 
 
@@ -588,7 +590,7 @@
 <h2>Hibernate XML Configuration</h2>
 
 
-<p>Lets move on to configuring hibernate for multi-tenancy. In this case I will be using XML but it can be easily converted to a Java configuration class. First we&#8217;ll look at what the configuration may look without multi-tenancy setup so you can see the difference.</p>
+<p>Lets move on to configuring hibernate for multi-tenancy. In this case I will be using XML but it can be easily converted to a Java configuration class. First we'll look at what the configuration may look without multi-tenancy setup so you can see the difference.</p>
 
 
 
@@ -675,7 +677,7 @@
 
 
 
-<p>As you can see, additional properties have been provided to the session factory so that it is configured for multi-tenancy. You can refer to the &#8216;Hibernate Multi-tenancy&#8217; link in the references to understand what these do.</p>
+<p>As you can see, additional properties have been provided to the session factory so that it is configured for multi-tenancy. You can refer to the 'Hibernate Multi-tenancy' link in the references to understand what these do.</p>
 
 
 
@@ -867,7 +869,7 @@
 <h2>HibernateTransactionManager (Optional)</h2>
 
 
-<p>If you are using Spring&#8217;s HibernateTransactionManager, you will find that when you start up your application it will throw a NullPointerException from the org.springframework.orm.hibernate4.SessionFactoryUtils.getDataSource() method. This is because the dataSource property is no longer being specified in the sessionFactory configuration.</p>
+<p>If you are using Spring's HibernateTransactionManager, you will find that when you start up your application it will throw a NullPointerException from the org.springframework.orm.hibernate4.SessionFactoryUtils.getDataSource() method. This is because the dataSource property is no longer being specified in the sessionFactory configuration.</p>
 
 
 
@@ -903,7 +905,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If you are using Spring&#8217;s HibernateTransactionManager, again the method of obtaining a session doesn&#8217;t need to change.</p>
+<p>If you are using Spring's HibernateTransactionManager, again the method of obtaining a session doesn't need to change.</p>
 
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

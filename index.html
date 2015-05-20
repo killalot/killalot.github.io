@@ -9,9 +9,7 @@
   <meta name="author" content="Peter Nicholson">
 
   
-  <meta name="description" content="Prerequisites Node.js installed
-MongoDB installed
-Basic knowledge of how to use both At some point you may come across a situation where you would &hellip;">
+  <meta name="description" content="At some point you may come across a situation where you would like to scan a file system / file directory or multiple storage locations. This might &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,13 +18,13 @@ Basic knowledge of how to use both At some point you may come across a situation
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="www.ticnfae.co.uk">
+  <link rel="canonical" href="www.ticnfae.co.uk/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="" rel="alternate" title="Ticnfae" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -58,13 +56,13 @@ Basic knowledge of how to use both At some point you may come across a situation
 
 </header>
   <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <!-- <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li> -->
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
   
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:www.ticnfae.co.uk" />
+    <input type="hidden" name="sitesearch" value="www.ticnfae.co.uk">
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -95,246 +93,14 @@ Basic knowledge of how to use both At some point you may come across a situation
 
 
 
-
-
-
-
-  
-
-
-<time datetime="2014-08-01T11:32:20+01:00" pubdate data-updated="true">Aug 1<sup>st</sup>, 2014</time>
+<time class='entry-date' datetime='2014-08-01T11:32:20+01:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>11:32 am</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Prerequisites</h2>
-
-<ul>
-<li>Node.js installed</li>
-<li>MongoDB installed</li>
-<li>Basic knowledge of how to use both</li>
-</ul>
-
-
-<p>At some point you may come across a situation where you would like to scan a file system / file directory or multiple storage locations. This might for a variety of reasons such as:</p>
-
-<ul>
-<li>Which directory holds the most files</li>
-<li>Do you have any duplicated files</li>
-<li>Which directory contains the most data</li>
-</ul>
-
-
-<p>Now there are plenty of methods of obtaining this information from using freeware or paid-for GUI applications to small command line scripts. However some programs do not store their results - they will present you with the information you need but if you want to analyse the results later you&rsquo;ll have to run the program again. This problem is also amplified if you want to analyse results from different media sources. For instance, drives on different machines that are not connected to each other.</p>
-
-<p>As an experiment I decided to I see how I could utilise Node.js event based programming to scan through a file system and then use MongoDB to store the data which can then be looked at later or added to.</p>
-
-<p>The code is contained in a single Javascript file run through Node.js on the command line:</p>
-
-<figure class='code'><figcaption><span> (fileIndexer.js)</span> <a href='/downloads/code/scanning-the-file-system-with-nodejs/fileIndexer.js'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// options</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">openFiles</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// counting number of currently opened files</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">directoriesToScan</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// used to hold the list of directory paths that has yet to be scanned</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">maxOpenFiles</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span> <span class="c1">// The max number of files that can be opened at once. Any higher on my machine seemed to make no real speed difference but feel free to experiment</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">waitTime</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// defines the sleep time to wait for reading files when &#39;openFiles&#39; has reached the maximum value</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">startingDirectory</span> <span class="o">=</span> <span class="s2">&quot;/home/peter/&quot;</span><span class="p">;</span> <span class="c1">// root directory to start indexing from - this can be just &#39;/&#39; but always end in a slash</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span> <span class="c1">// for accessing file system</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span> <span class="c1">// for hashing file contents</span>
-</span><span class='line'><span class="c1">// libaries for access mongodb - copied from mongoDB Node.js drive tutorial</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">Db</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">Db</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">MongoClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">MongoClient</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">Server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">Server</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">ReplSetServers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">ReplSetServers</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">ObjectID</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">ObjectID</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">Binary</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">Binary</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">GridStore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">GridStore</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">Grid</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">Grid</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">Code</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">Code</span><span class="p">,</span>
-</span><span class='line'>    <span class="nx">BSON</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mongodb&#39;</span><span class="p">).</span><span class="nx">pure</span><span class="p">().</span><span class="nx">BSON</span><span class="p">;</span>
-</span><span class='line'><span class="c1">// don&#39;t forget to create a &#39;file_duplicates&#39; database in your mongo server</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Db</span><span class="p">(</span><span class="s1">&#39;file_duplicates&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">27017</span><span class="p">,{</span><span class="nx">auto_reconnect</span><span class="o">:</span> <span class="kc">true</span><span class="p">}),{</span><span class="nx">w</span><span class="o">:</span><span class="mi">1</span><span class="p">});</span>
-</span><span class='line'><span class="c1">// Connect to the db</span>
-</span><span class='line'><span class="nx">db</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">db</span><span class="p">){</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">scanDirectory</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">dir</span><span class="p">){</span>
-</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="nx">openFiles</span><span class="o">&gt;</span><span class="nx">maxOpenFiles</span><span class="p">){</span>
-</span><span class='line'>          <span class="c1">// wait a bit if the maximum number of files is open.</span>
-</span><span class='line'>          <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">scanDirectory</span><span class="p">(</span><span class="nx">dir</span><span class="p">);},</span> <span class="nx">waitTime</span><span class="p">);</span>   
-</span><span class='line'>      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span><span class='line'>          <span class="c1">// gather files and directories inside directory currently being scanned</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">dir</span><span class="p">);</span>            
-</span><span class='line'>              <span class="nx">files</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">){</span>
-</span><span class='line'>                  <span class="c1">// get stats about file to check if its a directory and to get file size                               </span>
-</span><span class='line'>                  <span class="kd">var</span> <span class="nx">stat</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">lstatSync</span><span class="p">(</span><span class="nx">dir</span> <span class="o">+</span> <span class="nx">file</span><span class="p">);</span>
-</span><span class='line'>                  <span class="k">if</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">isFile</span><span class="p">()){</span>
-</span><span class='line'>                      <span class="k">if</span><span class="p">(</span><span class="nx">openFiles</span> <span class="o">&gt;</span> <span class="nx">maxOpenFiles</span><span class="p">){</span>
-</span><span class='line'>                          <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span><span class="nx">file</span><span class="p">,</span><span class="nx">stat</span><span class="p">.</span><span class="nx">size</span><span class="p">)},</span> <span class="nx">waitTime</span><span class="p">);</span>
-</span><span class='line'>                      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span><span class='line'>                          <span class="nx">readFile</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span><span class="nx">file</span><span class="p">,</span><span class="nx">stat</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
-</span><span class='line'>                      <span class="p">}</span>
-</span><span class='line'>                      
-</span><span class='line'>                  <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">stat</span><span class="p">.</span><span class="nx">isDirectory</span><span class="p">()){</span>
-</span><span class='line'>                      <span class="c1">// if is a directory add to list of directories to scan.</span>
-</span><span class='line'>                      <span class="nx">directoriesToScan</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">dir</span> <span class="o">+</span> <span class="nx">file</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">);</span>
-</span><span class='line'>                  <span class="p">}</span>
-</span><span class='line'>              <span class="p">});</span>
-</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="nx">directoriesToScan</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">){</span>
-</span><span class='line'>              <span class="k">if</span><span class="p">(</span><span class="nx">openFiles</span> <span class="o">&gt;</span> <span class="nx">maxOpenFiles</span><span class="p">){</span>
-</span><span class='line'>                  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">scanDirectory</span><span class="p">(</span><span class="nx">directoriesToScan</span><span class="p">.</span><span class="nx">pop</span><span class="p">());},</span> <span class="nx">waitTime</span><span class="p">);</span>    
-</span><span class='line'>              <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span><span class='line'>                  <span class="nx">scanDirectory</span><span class="p">(</span><span class="nx">directoriesToScan</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span>
-</span><span class='line'>              <span class="p">}</span>
-</span><span class='line'>          <span class="p">}</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>  <span class="p">};</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">readFile</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span><span class="nx">file</span><span class="p">,</span><span class="nx">size</span><span class="p">){</span>  
-</span><span class='line'>      <span class="c1">//console.log(openFiles + &quot; readFile&quot;);</span>
-</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="nx">openFiles</span> <span class="o">&gt;</span> <span class="nx">maxOpenFiles</span><span class="p">){</span>
-</span><span class='line'>          <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span><span class="nx">file</span><span class="p">,</span><span class="nx">size</span><span class="p">)},</span> <span class="nx">waitTime</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span><span class='line'>          <span class="nx">openFiles</span><span class="o">++</span><span class="p">;</span>
-</span><span class='line'>          <span class="c1">// setup file stream and hash</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">fd</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">dir</span> <span class="o">+</span> <span class="nx">file</span><span class="p">);</span>
-</span><span class='line'>          <span class="kd">var</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">&#39;md5&#39;</span><span class="p">);</span>
-</span><span class='line'>          <span class="nx">hash</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="nx">fd</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>              <span class="nx">hash</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-</span><span class='line'>              <span class="nx">openFiles</span><span class="o">--</span><span class="p">;</span>
-</span><span class='line'>              <span class="c1">// when finished reading file insert file details into collection (make sure to create the collection first)</span>
-</span><span class='line'>              <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">collection</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>                  <span class="nx">collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="nx">fileName</span><span class="o">:</span><span class="nx">file</span><span class="p">,</span><span class="nx">path</span><span class="o">:</span><span class="nx">dir</span><span class="o">+</span><span class="nx">file</span><span class="p">,</span><span class="nx">hash</span><span class="o">:</span><span class="nx">hash</span><span class="p">.</span><span class="nx">read</span><span class="p">(),</span><span class="nx">size</span><span class="o">:</span><span class="nx">size</span><span class="p">},</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">){</span>
-</span><span class='line'>                      <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">throw</span> <span class="nx">err</span><span class="p">;</span>
-</span><span class='line'>                      <span class="k">if</span><span class="p">(</span><span class="nx">openFiles</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">directoriesToScan</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">db</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-</span><span class='line'>                  <span class="p">});</span>          
-</span><span class='line'>              <span class="p">});</span>
-</span><span class='line'>          <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="nx">fd</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
-</span><span class='line'>              <span class="nx">openFiles</span><span class="o">--</span><span class="p">;</span>
-</span><span class='line'>              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;stream error &quot;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">);</span>
-</span><span class='line'>          <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="c1">// read all file and pipe it (write it) to the hash object</span>
-</span><span class='line'>          <span class="nx">fd</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">hash</span><span class="p">);</span>
-</span><span class='line'>                              
-</span><span class='line'>          
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>  <span class="p">};</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">// start the scanning </span>
-</span><span class='line'>  <span class="nx">scanDirectory</span><span class="p">(</span><span class="nx">startingDirectory</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Further reading</h2>
-
-<ul>
-<li><a href="http://docs.mongodb.org/ecosystem/drivers/node-js/">Node.js MongoDB Driver</a></li>
-<li><a href="http://nodejs.org/api/fs.html">Node.js File System Module</a></li>
-</ul>
-
-</div>
+  <div class="entry-content">At some point you may come across a situation where you would like to scan a file system / file directory or multiple storage locations. This might for a variety of reasons such as which directory holds the most files? Do you have any duplicated files, Which directory contains the most data?</div>
   
   
 
@@ -355,136 +121,14 @@ Basic knowledge of how to use both At some point you may come across a situation
 
 
 
-
-
-
-
-  
-
-
-<time datetime="2014-07-23T20:37:51+01:00" pubdate data-updated="true">Jul 23<sup>rd</sup>, 2014</time>
+<time class='entry-date' datetime='2014-07-23T20:37:51+01:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>8:37 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I have come across a scenario where I was required to combine multiple instances of the same Jasper report into a single pdf file. So here is a Spring controller that demonstrates this. I have also included a method for printing a single report as well so you can see the difference.</p>
-
-
-
-
-<figure class='code'><figcaption><span> (CombineReportsController.java)</span> <a href='/downloads/code/combining-jasper-reports-in-a-spring-controller/CombineReportsController.java'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Controller</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CombineReportsController</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Autowired</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">EntityDao</span> <span class="n">entityDao</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/print_selected&quot;</span><span class="o">,</span><span class="n">method</span><span class="o">=</span><span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printSelected</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&quot;ids[]&quot;</span><span class="o">)</span> <span class="n">Long</span><span class="o">[]</span> <span class="n">ids</span><span class="o">,</span><span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">JRException</span><span class="o">,</span> <span class="n">IOException</span><span class="o">{</span>
-</span><span class='line'>        <span class="c1">// get the jrxml file from the class path</span>
-</span><span class='line'>        <span class="n">URL</span> <span class="n">reportPath</span>  <span class="o">=</span> <span class="n">getClass</span><span class="o">().</span><span class="na">getResource</span><span class="o">(</span><span class="s">&quot;/jasper_reports/print_multiple.jrxml&quot;</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">List</span><span class="o">&lt;</span><span class="n">JasperPrint</span><span class="o">&gt;</span> <span class="n">jpList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-</span><span class='line'>        <span class="c1">// gather any entities that need to be passed to jasper</span>
-</span><span class='line'>        <span class="n">List</span><span class="o">&lt;</span><span class="n">Entity</span><span class="o">&gt;</span> <span class="n">entities</span> <span class="o">=</span> <span class="n">entityDao</span><span class="o">.</span><span class="na">printMultiple</span><span class="o">(</span><span class="n">ids</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="n">Entity</span> <span class="n">entity</span> <span class="o">:</span> <span class="n">entities</span><span class="o">){</span>
-</span><span class='line'>            <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-</span><span class='line'>            <span class="c1">// add entity and any other parameters</span>
-</span><span class='line'>            <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;entity&quot;</span><span class="o">,</span> <span class="n">entity</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="c1">// create JasperReport for each entity instance</span>
-</span><span class='line'>            <span class="n">JasperReport</span> <span class="n">jreport</span> <span class="o">=</span> <span class="n">JasperCompileManager</span><span class="o">.</span><span class="na">compileReport</span><span class="o">(</span><span class="n">reportPath</span><span class="o">.</span><span class="na">getPath</span><span class="o">());</span>
-</span><span class='line'>            <span class="n">JasperPrint</span> <span class="n">jprint</span> <span class="o">=</span> <span class="n">JasperFillManager</span><span class="o">.</span><span class="na">fillReport</span><span class="o">(</span><span class="n">jreport</span><span class="o">,</span> <span class="n">params</span><span class="o">,</span> <span class="k">new</span> <span class="nf">JRBeanCollectionDataSource</span> <span class="o">(</span><span class="n">entity</span><span class="o">.</span><span class="na">getItems</span><span class="o">()));</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="c1">// add report to list</span>
-</span><span class='line'>            <span class="n">jpList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">jprint</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="c1">// export reports using a single exporter and pass output stream of response object</span>
-</span><span class='line'>        <span class="n">JRPdfExporter</span> <span class="n">exporter</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">JRPdfExporter</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">exporter</span><span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="n">JRPdfExporterParameter</span><span class="o">.</span><span class="na">JASPER_PRINT_LIST</span><span class="o">,</span> <span class="n">jpList</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">exporter</span><span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="n">JRPdfExporterParameter</span><span class="o">.</span><span class="na">OUTPUT_STREAM</span><span class="o">,</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
-</span><span class='line'>        <span class="n">exporter</span><span class="o">.</span><span class="na">exportReport</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;/{id}/print&quot;</span><span class="o">)</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">ModelAndView</span> <span class="nf">printSingle</span><span class="o">(</span><span class="n">ModelMap</span> <span class="n">modelMap</span><span class="o">,</span> <span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">)</span> <span class="n">Long</span> <span class="n">id</span><span class="o">){</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">Entity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">entityDao</span><span class="o">.</span><span class="na">printSingle</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">JRDataSource</span> <span class="n">datasource</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">JRBeanCollectionDataSource</span> <span class="o">(</span><span class="n">entity</span><span class="o">.</span><span class="na">getItems</span><span class="o">());</span>
-</span><span class='line'>        <span class="n">modelMap</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;datasource&quot;</span><span class="o">,</span> <span class="n">datasource</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">modelMap</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;entity&quot;</span><span class="o">,</span> <span class="n">entity</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">modelMap</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;format&quot;</span><span class="o">,</span> <span class="s">&quot;pdf&quot;</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// &quot;entityPrintSingle&quot; is the bean id, declared inside the jasper-views.xml</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">ModelAndView</span><span class="o">(</span><span class="s">&quot;entityPrintSingle&quot;</span><span class="o">,</span> <span class="n">modelMap</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>The main difference between the 2 methods is that in the printSingle() method, Spring exports the Jasper report itself using the returned ModelAndView object. However the printSelected() method is performing the export manually in order to provide the list of Jasper reports to the exporter.</p>
-
-
-
-
-<h2>References</h2>
-
-
-<ul>
-    <li><a target="_blank" href="http://stackoverflow.com/questions/8564163/how-to-collate-multiple-jrxml-jasper-reports-into-a-one-single-pdf-output-file">Multiple jrxml reports into one file</a></li>
-    <li><a target="_blank" href="http://krams915.blogspot.co.uk/2010/12/spring-3-mvc-dynamic-jasper-integration.html">Dynamic jasper integration</a></li>
-    <li><a target="_blank" href="http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/export/JRPdfExporter.html#exportReport%28%29">JRPdfExporter</a></li>
-</ul>
-
-</div>
+  <div class="entry-content">I have come across a scenario where I was required to combine multiple instances of the same Jasper report into a single pdf file. So here is a Spring controller that demonstrates this. I have also included a method for printing a single report as well so you can see the difference.</div>
   
   
 
@@ -505,14 +149,7 @@ Basic knowledge of how to use both At some point you may come across a situation
 
 
 
-
-
-
-
-  
-
-
-<time datetime="2014-07-21T06:48:04+01:00" pubdate data-updated="true">Jul 21<sup>st</sup>, 2014</time>
+<time class='entry-date' datetime='2014-07-21T06:48:04+01:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>6:48 am</span></time>
         
       </p>
     
@@ -522,73 +159,6 @@ Basic knowledge of how to use both At some point you may come across a situation
   <div class="entry-content"><p>This is a kind of follow up from my <a href="/blog/2014/07/16/hibernate-multi-tenancy-with-spring">previous post</a>. In which I describe an example implementation of a Hibernate MultiTenantConnectionProvider and CurrentTenantIdentifierResolver. Later after writing I thought it would better to abstract the database configuration in these two files into a .properties file - so that the properties can be reused in other areas of the application such as when authenicating a user.</p>
 
 
-
-
-<p>Normally when you wish to use a .properties file in a spring application, you define a property placeholder in your context xml (or Java config) like so:</p>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;context:property-placeholder</span> <span class="na">location=</span><span class="s">&quot;classpath:filename.properties&quot;</span> <span class="nt">/&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>Then if you want to access the properties in a spring bean , you can use the @Value annotation in the bean class to inject the required property.</p>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Value</span><span class="o">(</span><span class="s">&quot;${property.value}&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="kd">private</span> <span class="n">String</span> <span class="n">property</span><span class="o">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now this is an easy way to access your properties, however there is a situation which I&#8217;ve discovered that requires a different approach. If the class you wish to pass the properties to does not get initialised as a spring bean - such as the MultiTenantConnectionProvider in my previous post, then you cannot use the @Value annotation. In this case it is because only the class name is given to hibernate which it will then make an instance of internally.</p>
-
-
-
-
-<p>A workaround for this is to access the properties file using a ClassLoader inside the MultiTenantConnectionProvider constructor.</p>
-
-
-
-
-<figure class='code'><figcaption><span> (MultiTenantConnectionProviderConstructor.java)</span> <a href='/downloads/code/accessing-java-properties-outside-spring-beans/MultiTenantConnectionProviderConstructor.java'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="kd">private</span> <span class="n">Properties</span> <span class="n">properties</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">public</span> <span class="nf">MultiTenantConnectionProvider</span><span class="o">(){</span>
-</span><span class='line'>      <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Properties</span><span class="o">();</span>
-</span><span class='line'>      <span class="n">ClassLoader</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getContextClassLoader</span><span class="o">();</span>
-</span><span class='line'>      <span class="n">InputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">&quot;filename.properties&quot;</span><span class="o">);</span>
-</span><span class='line'>      <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">stream</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="n">defaultDataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ComboPooledDataSource</span><span class="o">(</span><span class="n">properties</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;shared_database.name&quot;</span><span class="o">));</span>
-</span><span class='line'>
-</span><span class='line'>     <span class="c1">// rest of constructor omitted </span>
-</span><span class='line'>  <span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>This way you still access your properties anywhere inside a non-bean class.</p>
 
 </div>
   
@@ -611,14 +181,7 @@ Basic knowledge of how to use both At some point you may come across a situation
 
 
 
-
-
-
-
-  
-
-
-<time datetime="2014-07-16T20:18:54+01:00" pubdate data-updated="true">Jul 16<sup>th</sup>, 2014</time>
+<time class='entry-date' datetime='2014-07-16T20:18:54+01:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>8:18 pm</span></time>
         
       </p>
     
@@ -628,471 +191,6 @@ Basic knowledge of how to use both At some point you may come across a situation
   <div class="entry-content"><p>When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possible implementation of the separate database approach.</p>
 
 
-
-
-<h2>Prerequisites</h2>
-
-
-<ul>
-    <li>Basic knowledge of hibernate and its configuration</li>
-    <li>Basic knowledge of Spring MVC</li>
-    <li>Spring Security</li>
-</ul>
-
-
-
-
-<h2>Dependencies</h2>
-
-
-<ul>
-    <li>Hibernate 4.3</li>
-    <li>Spring 4.0</li>
-    <li>C3P0 0.9.2</li>
-</ul>
-
-
-
-
-<h2>Creating the Shared Database</h2>
-
-
-<p>If each tenant is accessing the application via the same URL, you would typically have a master or shared database which would store the full list of users each having a reference to their tenant database.</p>
-
-
-
-
-<p>When a user attempts to login to the application, you would first connect to the shared database to authenticate them e.g. using spring security, and assertain which database they need to connect to.</p>
-
-
-
-
-<p>The shared database will need a minimum of 2 tables: 1 to store the users and another to store the databases. Here is two entity classes to represent this.</p>
-
-
-
-
-<figure class='code'><figcaption><span> (Database.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/Database.java'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Table</span>
-</span><span class='line'><span class="nd">@Entity</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Database</span><span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nd">@Id</span> 
-</span><span class='line'>  <span class="kd">protected</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="cm">/* Optional fields */</span>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">version</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">server</span><span class="o">;</span> <span class="c1">// if databases are held in multiple servers</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">// getters and setters omitted</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span> (ServerUser.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/ServerUser.java'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServerUser</span><span class="o">{</span>
-</span><span class='line'>  <span class="nd">@Id</span> 
-</span><span class='line'>  <span class="kd">protected</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">Boolean</span> <span class="n">administrator</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nd">@JoinColumn</span>
-</span><span class='line'>  <span class="nd">@ManyToOne</span>
-</span><span class='line'>  <span class="kd">private</span> <span class="n">Database</span> <span class="n">database</span><span class="o">;</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>As an alternative to the shared database you could provide each tenant with a separate URL or make the users provide additional information during login, but I won&#8217;t go into details on how to do this here.</p>
-
-
-
-
-<h2>Hibernate XML Configuration</h2>
-
-
-<p>Lets move on to configuring hibernate for multi-tenancy. In this case I will be using XML but it can be easily converted to a Java configuration class. First we&#8217;ll look at what the configuration may look without multi-tenancy setup so you can see the difference.</p>
-
-
-
-
-<figure class='code'><figcaption><span> (datasources.xml)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/datasources.xml'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="c">&lt;!-- beans Root Element omitted --&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;datasource&quot;</span> <span class="na">class=</span><span class="s">&quot;org.apache.commons.dbcp.BasicDataSource&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;initialSize&quot;</span> <span class="na">value=</span><span class="s">&quot;16&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;minIdle&quot;</span> <span class="na">value=</span><span class="s">&quot;16&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;maxWait&quot;</span> <span class="na">value=</span><span class="s">&quot;10000&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!-- replace with your driver class --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;driverClassName&quot;</span> <span class="na">value=</span><span class="s">&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!-- replace with your database url --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;url&quot;</span> <span class="na">value=</span><span class="s">&quot;jdbc:sqlserver://localhost;databaseName=appDb&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">value=</span><span class="s">&quot;username&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span> <span class="na">value=</span><span class="s">&quot;password&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'><span class="nt">&lt;/bean&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;sessionFactory&quot;</span> <span class="na">class=</span><span class="s">&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;packagesToScan&quot;</span> <span class="na">value=</span><span class="s">&quot;your.models.package&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;dataSource&quot;</span> <span class="na">ref=</span><span class="s">&quot;datasource&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernateProperties&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;props&gt;</span>
-</span><span class='line'>          <span class="c">&lt;!-- Change to suit your database --&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&quot;hibernate.dialect&quot;</span><span class="nt">&gt;</span>org.hibernate.dialect.SQLServer2012Dialect<span class="nt">&lt;/prop&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/props&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/property&gt;</span>
-</span><span class='line'><span class="nt">&lt;/bean&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span> (datasources-multi-tenancy.xml)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/datasources-multi-tenancy.xml'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;sessionFactory&quot;</span> <span class="na">class=</span><span class="s">&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;packagesToScan&quot;</span> <span class="na">value=</span><span class="s">&quot;your.models.package&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;hibernateProperties&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;props&gt;</span>
-</span><span class='line'>              <span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&quot;hibernate.dialect&quot;</span><span class="nt">&gt;</span>org.hibernate.dialect.SQLServer2012Dialect<span class="nt">&lt;/prop&gt;</span>                
-</span><span class='line'>              <span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&quot;hibernate.multiTenancy&quot;</span><span class="nt">&gt;</span>DATABASE<span class="nt">&lt;/prop&gt;</span>
-</span><span class='line'>              <span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&quot;hibernate.tenant_identifier_resolver&quot;</span><span class="nt">&gt;</span>package.to.your.CurrentTenantIdentifierResolverImpl<span class="nt">&lt;/prop&gt;</span>
-</span><span class='line'>              <span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&quot;hibernate.multi_tenant_connection_provider&quot;</span><span class="nt">&gt;</span>package.to.your.MultiTenantConnectionProvider<span class="nt">&lt;/prop&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;/props&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;/property&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/bean&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>As you can see, additional properties have been provided to the session factory so that it is configured for multi-tenancy. You can refer to the &#8216;Hibernate Multi-tenancy&#8217; link in the references to understand what these do.</p>
-
-
-
-
-<p>What you will also notice is that the datasource bean has been removed from the configuration. This will be initialised in the MultiTenantConnectionProvider.</p>
-
-
-
-
-<h2>CurrentTenantIdentifierResolver</h2>
-
-
-<figure class='code'><figcaption><span> (CurrentTenantIdentifierResolverImpl.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/CurrentTenantIdentifierResolverImpl.java'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="c1">// imports omitted</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CurrentTenantIdentifierResolverImpl</span> <span class="kd">implements</span> <span class="n">CurrentTenantIdentifierResolver</span> <span class="o">{</span>
-</span><span class='line'>  
-</span><span class='line'>  <span class="nd">@Override</span>
-</span><span class='line'>  <span class="kd">public</span> <span class="n">String</span> <span class="nf">resolveCurrentTenantIdentifier</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">Authentication</span> <span class="n">authentication</span> <span class="o">=</span> <span class="n">SecurityContextHolder</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getAuthentication</span><span class="o">();</span>                
-</span><span class='line'>      <span class="n">String</span> <span class="n">database</span> <span class="o">=</span> <span class="s">&quot;shared&quot;</span><span class="o">;</span>
-</span><span class='line'>      <span class="k">if</span><span class="o">(</span><span class="n">authentication</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">authentication</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">()</span> <span class="k">instanceof</span> <span class="n">CustomUserDetails</span><span class="o">){</span>
-</span><span class='line'>          <span class="n">CustomUserDetails</span> <span class="n">user</span> <span class="o">=</span> <span class="o">(</span><span class="n">CustomUserDetails</span><span class="o">)</span> <span class="n">authentication</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">();</span>
-</span><span class='line'>          <span class="n">database</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="na">getDatabaseName</span><span class="o">();</span>
-</span><span class='line'>      <span class="o">}</span>
-</span><span class='line'>      <span class="k">return</span> <span class="n">database</span><span class="o">;</span>
-</span><span class='line'>  <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nd">@Override</span>
-</span><span class='line'>  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">validateExistingCurrentSessions</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-</span><span class='line'>  <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>This class is used by the MultiTenantConnectionProvider to ascertain the correct tenant identifier for the current hibernate session that has been opened. In this case spring security has been utilised to obtain the database name, which is the tenant identifier that is being used. If the current user is not authenicated, such as when first logging into the server, then the shared database name is given as the identifier. </p>
-
-
-
-
-<p>A custom implementation of the org.springframework.security.core.userdetails.User class - CustomUserDetails has been used in order to store the database name during authentication so that it can be later retrieved here.</p>
-
-
-
-
-<h2>MultiTenantConnectionProvider</h2>
-
-
-
-
-<figure class='code'><figcaption><span> (MultiTenantConnectionProvider.java)</span> <a href='/downloads/code/hibernate-multi-tenancy-with-spring/MultiTenantConnectionProvider.java'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MultiTenantConnectionProvider</span> <span class="kd">extends</span> <span class="n">AbstractDataSourceBasedMultiTenantConnectionProviderImpl</span>  <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">6241633589847209550L</span><span class="o">;</span>
-</span><span class='line'>  
-</span><span class='line'>  <span class="kd">private</span> <span class="n">ComboPooledDataSource</span> <span class="n">defaultDataSource</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kd">public</span> <span class="nf">MultiTenantConnectionProvider</span><span class="o">(){</span>
-</span><span class='line'>      <span class="n">defaultDataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ComboPooledDataSource</span><span class="o">(</span><span class="s">&quot;shared&quot;</span><span class="o">);</span>
-</span><span class='line'>      <span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setJdbcUrl</span><span class="o">(</span><span class="s">&quot;jdbc:sqlserver://localhost;databaseName=shared&quot;</span><span class="o">);</span>
-</span><span class='line'>      <span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setUser</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">);</span>
-</span><span class='line'>      <span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">);</span>
-</span><span class='line'>      <span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setInitialPoolSize</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>
-</span><span class='line'>      <span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setMaxConnectionAge</span><span class="o">(</span><span class="mi">10000</span><span class="o">);</span>
-</span><span class='line'>      <span class="k">try</span> <span class="o">{</span>
-</span><span class='line'>          <span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setDriverClass</span><span class="o">(</span><span class="s">&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot;</span><span class="o">);</span>
-</span><span class='line'>      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">PropertyVetoException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>          <span class="c1">// TODO Auto-generated catch block</span>
-</span><span class='line'>          <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-</span><span class='line'>      <span class="o">}</span>
-</span><span class='line'>  <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nd">@Override</span>
-</span><span class='line'>  <span class="kd">protected</span> <span class="n">DataSource</span> <span class="nf">selectAnyDataSource</span><span class="o">(){</span>       
-</span><span class='line'>      <span class="k">return</span> <span class="n">defaultDataSource</span><span class="o">;</span>
-</span><span class='line'>  <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nd">@Override</span>
-</span><span class='line'>  <span class="kd">protected</span> <span class="n">DataSource</span> <span class="nf">selectDataSource</span><span class="o">(</span><span class="n">String</span> <span class="n">tenantIdentifier</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">PooledDataSource</span> <span class="n">pds</span> <span class="o">=</span> <span class="n">C3P0Registry</span><span class="o">.</span><span class="na">pooledDataSourceByName</span><span class="o">(</span><span class="n">tenantIdentifier</span><span class="o">);</span>
-</span><span class='line'>      <span class="k">if</span><span class="o">(</span><span class="n">pds</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
-</span><span class='line'>          <span class="n">cpds</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ComboPooledDataSource</span><span class="o">(</span><span class="n">tenantIdentifier</span><span class="o">);</span>
-</span><span class='line'>          <span class="n">cpds</span><span class="o">.</span><span class="na">setJdbcUrl</span><span class="o">(</span><span class="s">&quot;jdbc:sqlserver://localhost;databaseName=&quot;</span> <span class="o">+</span> <span class="n">tenantIdentifier</span><span class="o">);</span>
-</span><span class='line'>          <span class="n">cpds</span><span class="o">.</span><span class="na">setUser</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">);</span>
-</span><span class='line'>          <span class="n">cpds</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">);</span>
-</span><span class='line'>          <span class="n">cpds</span><span class="o">.</span><span class="na">setInitialPoolSize</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>
-</span><span class='line'>          <span class="n">cpds</span><span class="o">.</span><span class="na">setMaxConnectionAge</span><span class="o">(</span><span class="mi">10000</span><span class="o">);</span>
-</span><span class='line'>          <span class="k">try</span> <span class="o">{</span>
-</span><span class='line'>              <span class="n">cpds</span><span class="o">.</span><span class="na">setDriverClass</span><span class="o">(</span><span class="s">&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot;</span><span class="o">);</span>
-</span><span class='line'>          <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">PropertyVetoException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>              <span class="c1">// TODO Auto-generated catch block</span>
-</span><span class='line'>              <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-</span><span class='line'>          <span class="o">}</span>
-</span><span class='line'>          <span class="k">return</span> <span class="n">cpds</span><span class="o">;</span>
-</span><span class='line'>          
-</span><span class='line'>      <span class="o">}</span>
-</span><span class='line'>      <span class="k">return</span> <span class="n">pds</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>  <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<p>This class provides hibernate with the correct datasource depending on the value of the tenant identifier given to it. During initialisation the class creates the default pooled datasource which is pointing to the shared database. The selectDataSource method uses the static method pooledDataSourceByName of the C3P0Registry to obtain the datasource. If a datasource does not exist for the tenant identifier, then it is lazy initialised and returned. The tenant identifier is provided to the datasource when it is created so that it can be passed to the C3P0Registry as a lookup field when it is needed to be retreived again.</p>
-
-
-
-
-<h2>HibernateTransactionManager (Optional)</h2>
-
-
-<p>If you are using Spring&#8217;s HibernateTransactionManager, you will find that when you start up your application it will throw a NullPointerException from the org.springframework.orm.hibernate4.SessionFactoryUtils.getDataSource() method. This is because the dataSource property is no longer being specified in the sessionFactory configuration.</p>
-
-
-
-
-<p>To prevent this exception from occuring, you can add an additional property to its configuration:</p>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;autodetectDataSource&quot;</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Usage</h2>
-
-
-<p>You can open a hibernate session as you normally expect but now it will interogate the CurrentTenantIdentifierResolver in the background.</p>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can also specify the tenant identifier manually, which can be useful when authenticating the user or for system administrator methods.</p>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">withOptions</span><span class="o">().</span><span class="na">tenantIdentifier</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">openSession</span><span class="o">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you are using Spring&#8217;s HibernateTransactionManager, again the method of obtaining a session doesn&#8217;t need to change.</p>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<h3>References and Further Reading</h3>
-
-
-<ul>
-    <li><a target="_blank" href="https://docs.jboss.org/hibernate/core/4.3/devguide/en-US/html/ch16.html">Hibernate Multi-tenancy</a></li>
-    <li><a target="_blank" href="http://www.mchange.com/projects/c3p0/">C3p0 datasource connection pooling</a></li>
-    <li><a target="_blank" href="http://www.slideshare.net/seges/multitenancy-in-java">Multi-tenancy in Java</a></li>
-</ul>
 
 </div>
   
@@ -1132,6 +230,35 @@ Basic knowledge of how to use both At some point you may come across a situation
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/pnicholson">@pnicholson</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'pnicholson',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -1142,7 +269,7 @@ Basic knowledge of how to use both At some point you may come across a situation
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Peter Nicholson -
+  Copyright &copy; 2015 - Peter Nicholson -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> - 
   <span class="credit">Hosted by <a href="https://pages.github.com/">GitHub Pages</a></span>
 </p>
