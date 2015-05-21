@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Spring, | Ticnfae]]></title>
-  <link href="www.ticnfae.co.uk/blog/categories/spring/atom.xml" rel="self"/>
-  <link href="www.ticnfae.co.uk/"/>
-  <updated>2015-05-20T21:57:36+01:00</updated>
-  <id>www.ticnfae.co.uk/</id>
+  <link href="http://www.ticnfae.co.uk/blog/categories/spring/atom.xml" rel="self"/>
+  <link href="http://www.ticnfae.co.uk/"/>
+  <updated>2015-05-21T21:48:43+01:00</updated>
+  <id>http://www.ticnfae.co.uk/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Combining Jasper Reports in a Spring Controller]]></title>
-    <link href="www.ticnfae.co.uk/blog/2014/07/23/combining-jasper-reports-in-a-spring-controller"/>
+    <link href="http://www.ticnfae.co.uk/blog/2014/07/23/combining-jasper-reports-in-a-spring-controller"/>
     <updated>2014-07-23T20:37:51+01:00</updated>
-    <id>www.ticnfae.co.uk/blog/2014/07/23/combining-jasper-reports-in-a-spring-controller</id>
+    <id>http://www.ticnfae.co.uk/blog/2014/07/23/combining-jasper-reports-in-a-spring-controller</id>
     <content type="html"><![CDATA[<p>I have come across a scenario where I was required to combine multiple instances of the same Jasper report into a single pdf file. So here is a Spring controller that demonstrates this. I have also included a method for printing a single report as well so you can see the difference.</p>
 
 

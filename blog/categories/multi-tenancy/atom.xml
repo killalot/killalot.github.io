@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Multi Tenancy | Ticnfae]]></title>
-  <link href="www.ticnfae.co.uk/blog/categories/multi-tenancy/atom.xml" rel="self"/>
-  <link href="www.ticnfae.co.uk/"/>
-  <updated>2015-05-20T21:57:36+01:00</updated>
-  <id>www.ticnfae.co.uk/</id>
+  <link href="http://www.ticnfae.co.uk/blog/categories/multi-tenancy/atom.xml" rel="self"/>
+  <link href="http://www.ticnfae.co.uk/"/>
+  <updated>2015-05-21T21:48:43+01:00</updated>
+  <id>http://www.ticnfae.co.uk/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hibernate Multi Tenancy With Spring]]></title>
-    <link href="www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring"/>
+    <link href="http://www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring"/>
     <updated>2014-07-16T20:18:54+01:00</updated>
-    <id>www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring</id>
+    <id>http://www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring</id>
     <content type="html"><![CDATA[<p>When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possible implementation of the separate database approach.</p>
 
 
