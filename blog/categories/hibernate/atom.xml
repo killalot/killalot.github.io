@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Hibernate | Ticnfae]]></title>
   <link href="http://www.ticnfae.co.uk/blog/categories/hibernate/atom.xml" rel="self"/>
   <link href="http://www.ticnfae.co.uk/"/>
-  <updated>2015-05-21T21:48:43+01:00</updated>
+  <updated>2015-05-24T13:27:15+01:00</updated>
   <id>http://www.ticnfae.co.uk/</id>
   <author>
     <name><![CDATA[Peter Nicholson]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possible implementation of the separate database approach.</p>
 
 
-<!--more-->
+<!-- more -->
 
 
 <h2>Prerequisites</h2>
