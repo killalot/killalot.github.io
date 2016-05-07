@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://www.ticnfae.co.uk/sitemap.xml 

@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ticnfae</title>
+    <description>Problems I couldn&#39;t find solutions to, plus my own personal projects.
+</description>
+    <link>http://www.ticnfae.co.uk/</link>
+    <atom:link href="http://www.ticnfae.co.uk/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 07 May 2016 18:22:18 +0100</pubDate>
+    <lastBuildDate>Sat, 07 May 2016 18:22:18 +0100</lastBuildDate>
+    <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>Converting to Safari Book Online</title>
+        <description>&lt;p&gt;For a couple of months now, I have been using &lt;a href=&quot;https://www.safaribooksonline.com/&quot;&gt;Safari Book Online&lt;/a&gt; as my main source of learning material. Since I am very happy with the service so far, I thought I would write up my experience.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;how-i-have-been-learning&quot;&gt;How I have been learning&lt;/h2&gt;
+
+&lt;p&gt;So first off, I think you should know how I was reading books before I met Safari Book Online. Now I would on average purchase a new digital book every 1-2 months. When I wanted to purchase a new book I would look though Amazon or Google books, choose a topic that peaked my interest, and based on reviews and popularity I would download a sample of book to try it before I commit to buying it. This is where I came across one of problems I had.&lt;/p&gt;
+
+&lt;p&gt;Each book sample varied in its size and educational content. When I say educational content I’m talking when the main bulk of the book which excludes things like table of contents, introduction, acknowledgements etc. Now if you have downloaded books samples from these services you’ll know what I’m talking about but for those that haven’t here are a couple of examples. One book sample I downloaded stopped at the first page of chapter 1, another had 3 complete chapters. Granted these are the edge cases but it gives you a sense of how much these samples can vary.&lt;/p&gt;
+
+&lt;p&gt;Of course at times this doesn’t really matter because I already am aware of the book or the author, or it was recommended by someone. When this isn’t the case though, having a limited sample to go on makes it a lot harder to make the decision whether I want to buy the book. Indeed there were occasions where I haven’t bought a book purely because of this reason. Its also annoying to find out that only a part of the book was useful for whatever reason. With a feeling that my time and money have been partially wasted. Now I know of services that let you buy a book on a per page basis however my experience (which is limited) is that the cost for a full book is higher than that of services where you can only buy the whole book. I suppose this is the price you have to pay for having that flexibility.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-i-gave-safari-a-go&quot;&gt;Why I gave Safari a go&lt;/h2&gt;
+
+&lt;p&gt;I can’t remember exactly how I came about discovering Safari books online but I think it was either a recommendation from a colleague or just seeing their site on Google. Anyway the initial appeal was its specialism of technology topics and therefore the hope that I would never again have to search through the various digital book services till I found what I was looking for. I was also interested in their subscription pricing model, giving me the scope to read any available book knowing that the price is fixed. And so with a sense of optimism, I signed up for a trial.&lt;/p&gt;
+
+&lt;h2 id=&quot;months-later&quot;&gt;2 Months Later&lt;/h2&gt;
+
+&lt;p&gt;So I am now about 2 months into my subscription with Safari and I have not looked back. No longer do I have to consider forking out £40-60 on a book with the possibility that I won’t read all of it. One of the main things that hits you straight away is the ease at which you can find new things to learn.  Because Safari is geared towards technology, topics are sufficiently broken down so you can find what your interested in quickly. I also very much like their queue concept. This is basically a list of material you want to read at some point and so it serves as a kind of narrowed down search, concentrated on what you want to read but giving you the choice of what order to read it in.&lt;/p&gt;
+
+&lt;p&gt;Another feature, which I should use more often, is that you can search their entire library down to the word level. So when you’re searching, its looking through the entire contents of every book not just on their titles or chapters. I found this really useful when I didn’t have much success googling a problem and so I would then start to cherry pick through books on Safari to help me come up with the answer.&lt;/p&gt;
+
+&lt;p&gt;Now this review of sorts of Safari Books Online is biased on the positives, but still there are 1 or 2 bits that I’m not fully happy with. What I realised in the first week is that Safari has got reading on a desktop licked, but when reading on a mobile device it lacks some usability or features that I had gotten use to while I was using the Google or Amazon app. Although their site does work on a touch device it just isn’t as nice to use. The side menu is particularly irritating as once its expanded it can’t be retracted unless you refresh the page. However with that being said Safari do seem to be working on it. They have released a Queue app on Apple devices which allows you to download items from your queue and read them offline. Unfortunately I don’t have a mobile Apple device to test with but they do have an Android version in Beta which I’m currently using which when released will solve my device support issues. So if you’re using Apple you’re good to go and Android users will just have to wait a little bit for full mobile support.&lt;/p&gt;
+
+&lt;p&gt;I also found that a side benefit of using Safari is that I am actually reading a great deal more than I was before, probably double. Their subscription model is partially to blame for this - I want to get value for money so I read enough so that the price is easily justified. The rest of blame falls on the fact that it is able to keep me interested by allowing me to jump from book to book whenever I like.&lt;/p&gt;
+
+&lt;p&gt;So to conclude, if you are learning in a similar way to how I was, then I suggest that you give Safari a go.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 23 May 2015 11:27:52 +0100</pubDate>
+        <link>http://www.ticnfae.co.uk/learning/safari%20books%20online/reading/2015/05/23/converting-to-safari-book-online.html</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/learning/safari%20books%20online/reading/2015/05/23/converting-to-safari-book-online.html</guid>
+        
+        
+        <category>learning</category>
+        
+        <category>safari books online</category>
+        
+        <category>reading</category>
+        
+      </item>
+    
+      <item>
+        <title>Scanning the file system with Node.js and MongoDB</title>
+        <description>&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Node.js installed&lt;/li&gt;
+  &lt;li&gt;MongoDB installed&lt;/li&gt;
+  &lt;li&gt;Basic knowledge of how to use both&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At some point you may come across a situation where you would like to scan a file system / file directory or multiple storage locations. This might for a variety of reasons such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Which directory holds the most files&lt;/li&gt;
+  &lt;li&gt;Do you have any duplicated files&lt;/li&gt;
+  &lt;li&gt;Which directory contains the most data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now there are plenty of methods of obtaining this information from using freeware or paid-for GUI applications to small command line scripts. However some programs do not store their results - they will present you with the information you need but if you want to analyse the results later you’ll have to run the program again. This problem is also amplified if you want to analyse results from different media sources. For instance, drives on different machines that are not connected to each other.&lt;/p&gt;
+
+&lt;p&gt;As an experiment I decided to I see how I could utilise Node.js event based programming to scan through a file system and then use MongoDB to store the data which can then be looked at later or added to.&lt;/p&gt;
+
+&lt;p&gt;The code is contained in a single Javascript file run through Node.js on the command line:
+``` Javascript
+// options
+var openFiles = 0; // counting number of currently opened files
+var directoriesToScan = []; // used to hold the list of directory paths that has yet to be scanned
+var maxOpenFiles = 300; // The max number of files that can be opened at once. Any higher on my machine seemed to make no real speed difference but feel free to experiment
+var waitTime = 20; // defines the sleep time to wait for reading files when ‘openFiles’ has reached the maximum value
+var startingDirectory = “/home/peter/”; // root directory to start indexing from - this can be just ‘/’ but always end in a slash&lt;/p&gt;
+
+&lt;p&gt;var fs = require(‘fs’); // for accessing file system
+var crypto = require(‘crypto’); // for hashing file contents
+// libaries for access mongodb - copied from mongoDB Node.js drive tutorial
+var Db = require(‘mongodb’).Db,
+    MongoClient = require(‘mongodb’).MongoClient,
+    Server = require(‘mongodb’).Server,
+    ReplSetServers = require(‘mongodb’).ReplSetServers,
+    ObjectID = require(‘mongodb’).ObjectID,
+    Binary = require(‘mongodb’).Binary,
+    GridStore = require(‘mongodb’).GridStore,
+    Grid = require(‘mongodb’).Grid,
+    Code = require(‘mongodb’).Code,
+    BSON = require(‘mongodb’).pure().BSON;
+// don’t forget to create a ‘file_duplicates’ database in your mongo server
+var db = new Db(‘file_duplicates’, new Server(‘localhost’, 27017,{auto_reconnect: true}),{w:1});
+// Connect to the db
+db.open(function(err,db){&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var scanDirectory = function(dir){
+	if(openFiles&amp;gt;maxOpenFiles){
+		// wait a bit if the maximum number of files is open.
+		setTimeout(function(){scanDirectory(dir);}, waitTime);
+	}else{
+		// gather files and directories inside directory currently being scanned
+		var files = fs.readdirSync(dir);			
+			files.forEach(function(file){
+				// get stats about file to check if its a directory and to get file size								
+				var stat = fs.lstatSync(dir + file);
+				if(stat.isFile()){
+					if(openFiles &amp;gt; maxOpenFiles){
+						setTimeout(function(){readFile(dir,file,stat.size)}, waitTime);
+					}else{
+						readFile(dir,file,stat.size);
+					}
+
+				}else if(stat.isDirectory()){
+					// if is a directory add to list of directories to scan.
+					directoriesToScan.push(dir + file + &#39;/&#39;);
+				}
+			});
+		if(directoriesToScan.length &amp;gt; 0 ){
+			if(openFiles &amp;gt; maxOpenFiles){
+				setTimeout(function(){scanDirectory(directoriesToScan.pop());}, waitTime);
+			}else{
+				scanDirectory(directoriesToScan.pop());
+			}
+		}
+	}
+};
+
+var readFile = function(dir,file,size){
+	//console.log(openFiles + &quot; readFile&quot;);
+	if(openFiles &amp;gt; maxOpenFiles){
+		setTimeout(function(){readFile(dir,file,size)}, waitTime);
+	}else{
+		openFiles++;
+		// setup file stream and hash
+		var fd = fs.createReadStream(dir + file);
+		var hash = crypto.createHash(&#39;md5&#39;);
+		hash.setEncoding(&#39;hex&#39;);
+
+		fd.on(&#39;end&#39;, function(){
+		    hash.end();
+		    openFiles--;
+		    // when finished reading file insert file details into collection (make sure to create the collection first)
+		    db.collection(&#39;files&#39;, function(err, collection) {
+				collection.insert({fileName:file,path:dir+file,hash:hash.read(),size:size},function(err, result){
+					if(err) throw err;
+					if(openFiles == 0 &amp;amp;&amp;amp; directoriesToScan == 0) db.close();
+				});			
+			});
+		});
+
+		fd.on(&#39;error&#39;,function(err){
+			openFiles--;
+			console.log(&quot;stream error &quot; + err);
+		});
+
+		// read all file and pipe it (write it) to the hash object
+		fd.pipe(hash);
+
+
+	}
+};
+
+// start the scanning
+scanDirectory(startingDirectory); }); ```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;further-reading&quot;&gt;Further reading&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://docs.mongodb.org/ecosystem/drivers/node-js/&quot;&gt;Node.js MongoDB Driver&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nodejs.org/api/fs.html&quot;&gt;Node.js File System Module&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 01 Aug 2014 11:32:20 +0100</pubDate>
+        <link>http://www.ticnfae.co.uk/node.js/mongodb/file%20scanning/2014/08/01/scanning-the-file-system-with-node-dot-js-and-mongodb.html</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/node.js/mongodb/file%20scanning/2014/08/01/scanning-the-file-system-with-node-dot-js-and-mongodb.html</guid>
+        
+        
+        <category>node.js</category>
+        
+        <category>mongodb</category>
+        
+        <category>file scanning</category>
+        
+      </item>
+    
+      <item>
+        <title>Combining Jasper reports in a Spring controller</title>
+        <description>&lt;p&gt;I have come across a scenario where I was required to combine multiple instances of the same Jasper report into a single pdf file. So here is a Spring controller that demonstrates this. I have also included a method for printing a single report as well so you can see the difference.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Controller&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CombineReportsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EntityDao&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entityDao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/print_selected&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;printSelected&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@RequestParam&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ids[]&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ids&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JRException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// get the jrxml file from the class path&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reportPath&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getResource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/jasper_reports/print_multiple.jrxml&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JasperPrint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jpList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// gather any entities that need to be passed to jasper&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Entity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entities&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entityDao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printMultiple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ids&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Entity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;            
+            &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// add entity and any other parameters&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;entity&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// create JasperReport for each entity instance&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;JasperReport&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jreport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JasperCompileManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compileReport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reportPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;JasperPrint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jprint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JasperFillManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fillReport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jreport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JRBeanCollectionDataSource&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getItems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()));&lt;/span&gt;            
+
+            &lt;span class=&quot;c1&quot;&gt;// add report to list&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;jpList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jprint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;     
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// export reports using a single exporter and pass output stream of response object&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;JRPdfExporter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exporter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JRPdfExporter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;exporter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JRPdfExporterParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;JASPER_PRINT_LIST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jpList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;exporter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;JRPdfExporterParameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;OUTPUT_STREAM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getOutputStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;exporter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;exportReport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/{id}/print&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ModelAndView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;printSingle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ModelMap&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;modelMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@PathVariable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;            
+
+        &lt;span class=&quot;n&quot;&gt;Entity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entityDao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printSingle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;JRDataSource&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datasource&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JRBeanCollectionDataSource&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;entity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getItems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;modelMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;datasource&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datasource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;modelMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;entity&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;entity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;modelMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;format&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;pdf&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;        
+
+        &lt;span class=&quot;c1&quot;&gt;// &quot;entityPrintSingle&quot; is the bean id, declared inside the jasper-views.xml&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ModelAndView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;entityPrintSingle&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;modelMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The main difference between the 2 methods is that in the printSingle() method, Spring exports the Jasper report itself using the returned ModelAndView object. However the printSelected() method is performing the export manually in order to provide the list of Jasper reports to the exporter.&lt;/p&gt;
+
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://stackoverflow.com/questions/8564163/how-to-collate-multiple-jrxml-jasper-reports-into-a-one-single-pdf-output-file&quot;&gt;Multiple jrxml reports into one file&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://krams915.blogspot.co.uk/2010/12/spring-3-mvc-dynamic-jasper-integration.html&quot;&gt;Dynamic jasper integration&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://jasperreports.sourceforge.net/api/net/sf/jasperreports/engine/export/JRPdfExporter.html#exportReport%28%29&quot;&gt;JRPdfExporter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 23 Jul 2014 20:37:51 +0100</pubDate>
+        <link>http://www.ticnfae.co.uk/spring,/jasper/2014/07/23/combining-jasper-reports-in-a-spring-controller.html</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/spring,/jasper/2014/07/23/combining-jasper-reports-in-a-spring-controller.html</guid>
+        
+        
+        <category>Spring,</category>
+        
+        <category>Jasper</category>
+        
+      </item>
+    
+      <item>
+        <title>Accessing java properties outside spring beans</title>
+        <description>&lt;p&gt;This is a kind of follow up from my &lt;a href=&quot;/spring/hibernate/multi%20tenancy/java/2014/07/16/hibernate-multi-tenancy-with-spring.html&quot;&gt;previous post&lt;/a&gt;. In which I describe an example implementation of a Hibernate MultiTenantConnectionProvider and CurrentTenantIdentifierResolver. Later after writing I thought it would better to abstract the database configuration in these two files into a .properties file - so that the properties can be reused in other areas of the application such as when authenicating a user.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+&lt;p&gt;Normally when you wish to use a .properties file in a spring application, you define a property placeholder in your context xml (or Java config) like so:&lt;/p&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;context:property-placeholder&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;location=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;classpath:filename.properties&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then if you want to access the properties in a spring bean , you can use the @Value annotation in the bean class to inject the required property.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${property.value}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Now this is an easy way to access your properties, however there is a situation which I&#39;ve discovered that requires a different approach. If the class you wish to pass the properties to does not get initialised as a spring bean - such as the MultiTenantConnectionProvider in my previous post, then you cannot use the @Value annotation. In this case it is because only the class name is given to hibernate which it will then make an instance of internally.&lt;/p&gt;
+
+&lt;p&gt;A workaround for this is to access the properties file using a ClassLoader inside the MultiTenantConnectionProvider constructor.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Properties&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;MultiTenantConnectionProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;properties&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ClassLoader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;currentThread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContextClassLoader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;InputStream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getResourceAsStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;filename.properties&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ComboPooledDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;shared_database.name&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+
+   &lt;span class=&quot;c1&quot;&gt;// rest of constructor omitted&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This way you still access your properties anywhere inside a non-bean class.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 21 Jul 2014 06:48:04 +0100</pubDate>
+        <link>http://www.ticnfae.co.uk/spring/4,/java/properties/2014/07/21/accessing-java-properties-outside-spring-beans.html</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/spring/4,/java/properties/2014/07/21/accessing-java-properties-outside-spring-beans.html</guid>
+        
+        
+        <category>spring</category>
+        
+        <category>4,</category>
+        
+        <category>java</category>
+        
+        <category>properties</category>
+        
+      </item>
+    
+      <item>
+        <title>Hibernate Multi Tenancy with Spring</title>
+        <description>&lt;p&gt;When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possible implementation of the separate database approach.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+&lt;p&gt;## Prerequisites&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Basic knowledge of hibernate and its configuration&lt;/li&gt;
+  &lt;li&gt;Basic knowledge of Spring MVC&lt;/li&gt;
+  &lt;li&gt;Spring Security&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Dependencies&lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li&gt;Hibernate 4.3&lt;/li&gt;
+	&lt;li&gt;Spring 4.0&lt;/li&gt;
+	&lt;li&gt;C3P0 0.9.2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Creating the Shared Database&lt;/h2&gt;
+&lt;p&gt;If each tenant is accessing the application via the same URL, you would typically have a master or shared database which would store the full list of users each having a reference to their tenant database.&lt;/p&gt;
+
+&lt;p&gt;When a user attempts to login to the application, you would first connect to the shared database to authenticate them e.g. using spring security, and assertain which database they need to connect to.&lt;/p&gt;
+
+&lt;p&gt;The shared database will need a minimum of 2 tables: 1 to store the users and another to store the databases. Here is two entity classes to represent this.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Table&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Entity&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Database&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;cm&quot;&gt;/* Optional fields */&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// if databases are held in multiple servers&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// getters and setters omitted&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServerUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@Id&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;administrator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;nd&quot;&gt;@JoinColumn&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@ManyToOne&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Database&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As an alternative to the shared database you could provide each tenant with a separate URL or make the users provide additional information during login, but I won&#39;t go into details on how to do this here.&lt;/p&gt;
+
+&lt;h2&gt;Hibernate XML Configuration&lt;/h2&gt;
+&lt;p&gt;Lets move on to configuring hibernate for multi-tenancy. In this case I will be using XML but it can be easily converted to a Java configuration class. First we&#39;ll look at what the configuration may look without multi-tenancy setup so you can see the difference.&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- beans Root Element omitted --&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;datasource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.apache.commons.dbcp.BasicDataSource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;initialSize&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;16&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;minIdle&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;16&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxWait&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;10000&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- replace with your driver class --&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;driverClassName&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- replace with your database url --&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;url&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jdbc:sqlserver://localhost;databaseName=appDb&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sessionFactory&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;packagesToScan&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;your.models.package&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;datasource&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hibernateProperties&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;props&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Change to suit your database --&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;prop&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;key=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hibernate.dialect&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;org.hibernate.dialect.SQLServer2012Dialect&lt;span class=&quot;nt&quot;&gt;&amp;lt;/prop&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/props&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sessionFactory&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;packagesToScan&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;your.models.package&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hibernateProperties&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;props&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;prop&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;key=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hibernate.dialect&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;org.hibernate.dialect.SQLServer2012Dialect&lt;span class=&quot;nt&quot;&gt;&amp;lt;/prop&amp;gt;&lt;/span&gt;				
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;prop&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;key=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hibernate.multiTenancy&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;DATABASE&lt;span class=&quot;nt&quot;&gt;&amp;lt;/prop&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;prop&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;key=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hibernate.tenant_identifier_resolver&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;package.to.your.CurrentTenantIdentifierResolverImpl&lt;span class=&quot;nt&quot;&gt;&amp;lt;/prop&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;prop&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;key=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hibernate.multi_tenant_connection_provider&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;package.to.your.MultiTenantConnectionProvider&lt;span class=&quot;nt&quot;&gt;&amp;lt;/prop&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/props&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you can see, additional properties have been provided to the session factory so that it is configured for multi-tenancy. You can refer to the &#39;Hibernate Multi-tenancy&#39; link in the references to understand what these do.&lt;/p&gt;
+
+&lt;p&gt;What you will also notice is that the datasource bean has been removed from the configuration. This will be initialised in the MultiTenantConnectionProvider.&lt;/p&gt;
+
+&lt;h2&gt;CurrentTenantIdentifierResolver&lt;/h2&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// imports omitted&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CurrentTenantIdentifierResolverImpl&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CurrentTenantIdentifierResolver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resolveCurrentTenantIdentifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Authentication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SecurityContextHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAuthentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;				
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;database&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;shared&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPrincipal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CustomUserDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;CustomUserDetails&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CustomUserDetails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authentication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPrincipal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;database&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDatabaseName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validateExistingCurrentSessions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This class is used by the MultiTenantConnectionProvider to ascertain the correct tenant identifier for the current hibernate session that has been opened. In this case spring security has been utilised to obtain the database name, which is the tenant identifier that is being used. If the current user is not authenicated, such as when first logging into the server, then the shared database name is given as the identifier. &lt;/p&gt;
+
+&lt;p&gt;A custom implementation of the org.springframework.security.core.userdetails.User class - CustomUserDetails has been used in order to store the database name during authentication so that it can be later retrieved here.&lt;/p&gt;
+
+&lt;h2&gt;MultiTenantConnectionProvider&lt;/h2&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MultiTenantConnectionProvider&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AbstractDataSourceBasedMultiTenantConnectionProviderImpl&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialVersionUID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6241633589847209550L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ComboPooledDataSource&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MultiTenantConnectionProvider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ComboPooledDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;shared&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setJdbcUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jdbc:sqlserver://localhost;databaseName=shared&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setPassword&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setInitialPoolSize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setMaxConnectionAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setDriverClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PropertyVetoException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;c1&quot;&gt;// TODO Auto-generated catch block&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataSource&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selectAnyDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;		
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataSource&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selectDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tenantIdentifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;PooledDataSource&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C3P0Registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pooledDataSourceByName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tenantIdentifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;cpds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ComboPooledDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tenantIdentifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;cpds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setJdbcUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jdbc:sqlserver://localhost;databaseName=&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tenantIdentifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;cpds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;cpds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setPassword&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;cpds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setInitialPoolSize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;cpds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setMaxConnectionAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;cpds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setDriverClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PropertyVetoException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;c1&quot;&gt;// TODO Auto-generated catch block&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cpds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This class provides hibernate with the correct datasource depending on the value of the tenant identifier given to it. During initialisation the class creates the default pooled datasource which is pointing to the shared database. The selectDataSource method uses the static method pooledDataSourceByName of the C3P0Registry to obtain the datasource. If a datasource does not exist for the tenant identifier, then it is lazy initialised and returned. The tenant identifier is provided to the datasource when it is created so that it can be passed to the C3P0Registry as a lookup field when it is needed to be retreived again.&lt;/p&gt;
+
+&lt;h2&gt;HibernateTransactionManager (Optional)&lt;/h2&gt;
+&lt;p&gt;If you are using Spring&#39;s HibernateTransactionManager, you will find that when you start up your application it will throw a NullPointerException from the org.springframework.orm.hibernate4.SessionFactoryUtils.getDataSource() method. This is because the dataSource property is no longer being specified in the sessionFactory configuration.&lt;/p&gt;
+
+&lt;p&gt;To prevent this exception from occuring, you can add an additional property to its configuration:&lt;/p&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;autodetectDataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;You can open a hibernate session as you normally expect but now it will interogate the CurrentTenantIdentifierResolver in the background.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sessionFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;openSession&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You can also specify the tenant identifier manually, which can be useful when authenticating the user or for system administrator methods.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sessionFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withOptions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tenantIdentifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tenantId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;openSession&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;If you are using Spring&#39;s HibernateTransactionManager, again the method of obtaining a session doesn&#39;t need to change.&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Session&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sessionFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getCurrentSession&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;References and Further Reading&lt;/h3&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;https://docs.jboss.org/hibernate/core/4.3/devguide/en-US/html/ch16.html&quot;&gt;Hibernate Multi-tenancy&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.mchange.com/projects/c3p0/&quot;&gt;C3p0 datasource connection pooling&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.slideshare.net/seges/multitenancy-in-java&quot;&gt;Multi-tenancy in Java&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 16 Jul 2014 20:18:54 +0100</pubDate>
+        <link>http://www.ticnfae.co.uk/spring/hibernate/multi%20tenancy/java/2014/07/16/hibernate-multi-tenancy-with-spring.html</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/spring/hibernate/multi%20tenancy/java/2014/07/16/hibernate-multi-tenancy-with-spring.html</guid>
+        
+        
+        <category>Spring</category>
+        
+        <category>Hibernate</category>
+        
+        <category>Multi Tenancy</category>
+        
+        <category>Java</category>
+        
+      </item>
+    
+  </channel>
+</rss>
