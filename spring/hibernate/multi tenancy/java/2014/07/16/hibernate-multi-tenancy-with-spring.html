@@ -79,7 +79,8 @@
     <p>When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possible implementation of the separate database approach.</p>
 
 <!-- more -->
-<p>## Prerequisites</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
 
 <ul>
   <li>Basic knowledge of hibernate and its configuration</li>
@@ -87,14 +88,16 @@
   <li>Spring Security</li>
 </ul>
 
-<h2>Dependencies</h2>
+<h2 id="dependencies">Dependencies</h2>
+
 <ul>
-	<li>Hibernate 4.3</li>
-	<li>Spring 4.0</li>
-	<li>C3P0 0.9.2</li>
+  <li>Hibernate 4.3</li>
+  <li>Spring 4.0</li>
+  <li>C3P0 0.9.2</li>
 </ul>
 
-<h2>Creating the Shared Database</h2>
+<h2 id="creating-the-shared-database">Creating the Shared Database</h2>
+
 <p>If each tenant is accessing the application via the same URL, you would typically have a master or shared database which would store the full list of users each having a reference to their tenant database.</p>
 
 <p>When a user attempts to login to the application, you would first connect to the shared database to authenticate them e.g. using spring security, and assertain which database they need to connect to.</p>
@@ -141,10 +144,11 @@
 </code></pre>
 </div>
 
-<p>As an alternative to the shared database you could provide each tenant with a separate URL or make the users provide additional information during login, but I won't go into details on how to do this here.</p>
+<p>As an alternative to the shared database you could provide each tenant with a separate URL or make the users provide additional information during login, but I won’t go into details on how to do this here.</p>
 
-<h2>Hibernate XML Configuration</h2>
-<p>Lets move on to configuring hibernate for multi-tenancy. In this case I will be using XML but it can be easily converted to a Java configuration class. First we'll look at what the configuration may look without multi-tenancy setup so you can see the difference.</p>
+<h2 id="hibernate-xml-configuration">Hibernate XML Configuration</h2>
+
+<p>Lets move on to configuring hibernate for multi-tenancy. In this case I will be using XML but it can be easily converted to a Java configuration class. First we’ll look at what the configuration may look without multi-tenancy setup so you can see the difference.</p>
 
 <div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- beans Root Element omitted --&gt;</span>
 
@@ -187,11 +191,12 @@
 </code></pre>
 </div>
 
-<p>As you can see, additional properties have been provided to the session factory so that it is configured for multi-tenancy. You can refer to the 'Hibernate Multi-tenancy' link in the references to understand what these do.</p>
+<p>As you can see, additional properties have been provided to the session factory so that it is configured for multi-tenancy. You can refer to the ‘Hibernate Multi-tenancy’ link in the references to understand what these do.</p>
 
 <p>What you will also notice is that the datasource bean has been removed from the configuration. This will be initialised in the MultiTenantConnectionProvider.</p>
 
-<h2>CurrentTenantIdentifierResolver</h2>
+<h2 id="currenttenantidentifierresolver">CurrentTenantIdentifierResolver</h2>
+
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// imports omitted</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CurrentTenantIdentifierResolverImpl</span> <span class="kd">implements</span> <span class="n">CurrentTenantIdentifierResolver</span> <span class="o">{</span>
@@ -216,11 +221,11 @@
 </code></pre>
 </div>
 
-<p>This class is used by the MultiTenantConnectionProvider to ascertain the correct tenant identifier for the current hibernate session that has been opened. In this case spring security has been utilised to obtain the database name, which is the tenant identifier that is being used. If the current user is not authenicated, such as when first logging into the server, then the shared database name is given as the identifier. </p>
+<p>This class is used by the MultiTenantConnectionProvider to ascertain the correct tenant identifier for the current hibernate session that has been opened. In this case spring security has been utilised to obtain the database name, which is the tenant identifier that is being used. If the current user is not authenicated, such as when first logging into the server, then the shared database name is given as the identifier.</p>
 
 <p>A custom implementation of the org.springframework.security.core.userdetails.User class - CustomUserDetails has been used in order to store the database name during authentication so that it can be later retrieved here.</p>
 
-<h2>MultiTenantConnectionProvider</h2>
+<h2 id="multitenantconnectionprovider">MultiTenantConnectionProvider</h2>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MultiTenantConnectionProvider</span> <span class="kd">extends</span> <span class="n">AbstractDataSourceBasedMultiTenantConnectionProviderImpl</span>  <span class="o">{</span>
 
@@ -278,34 +283,41 @@
 
 <p>This class provides hibernate with the correct datasource depending on the value of the tenant identifier given to it. During initialisation the class creates the default pooled datasource which is pointing to the shared database. The selectDataSource method uses the static method pooledDataSourceByName of the C3P0Registry to obtain the datasource. If a datasource does not exist for the tenant identifier, then it is lazy initialised and returned. The tenant identifier is provided to the datasource when it is created so that it can be passed to the C3P0Registry as a lookup field when it is needed to be retreived again.</p>
 
-<h2>HibernateTransactionManager (Optional)</h2>
-<p>If you are using Spring's HibernateTransactionManager, you will find that when you start up your application it will throw a NullPointerException from the org.springframework.orm.hibernate4.SessionFactoryUtils.getDataSource() method. This is because the dataSource property is no longer being specified in the sessionFactory configuration.</p>
+<h2 id="hibernatetransactionmanager-optional">HibernateTransactionManager (Optional)</h2>
+
+<p>If you are using Spring’s HibernateTransactionManager, you will find that when you start up your application it will throw a NullPointerException from the org.springframework.orm.hibernate4.SessionFactoryUtils.getDataSource() method. This is because the dataSource property is no longer being specified in the sessionFactory configuration.</p>
 
 <p>To prevent this exception from occuring, you can add an additional property to its configuration:</p>
+
 <div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"autodetectDataSource"</span> <span class="na">value=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
 </code></pre>
 </div>
-<h2>Usage</h2>
+<p>## Usage</p>
+
 <p>You can open a hibernate session as you normally expect but now it will interogate the CurrentTenantIdentifierResolver in the background.</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">();</span>
 </code></pre>
 </div>
+
 <p>You can also specify the tenant identifier manually, which can be useful when authenticating the user or for system administrator methods.</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">withOptions</span><span class="o">().</span><span class="na">tenantIdentifier</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">openSession</span><span class="o">();</span>
 </code></pre>
 </div>
-<p>If you are using Spring's HibernateTransactionManager, again the method of obtaining a session doesn't need to change.</p>
+
+<p>If you are using Spring’s HibernateTransactionManager, again the method of obtaining a session doesn’t need to change.</p>
+
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">();</span>
 </code></pre>
 </div>
 
-<h3>References and Further Reading</h3>
+<h3 id="references-and-further-reading">References and Further Reading</h3>
+
 <ul>
-	<li><a target="_blank" href="https://docs.jboss.org/hibernate/core/4.3/devguide/en-US/html/ch16.html">Hibernate Multi-tenancy</a></li>
-	<li><a target="_blank" href="http://www.mchange.com/projects/c3p0/">C3p0 datasource connection pooling</a></li>
-	<li><a target="_blank" href="http://www.slideshare.net/seges/multitenancy-in-java">Multi-tenancy in Java</a></li>
+  <li><a target="_blank" href="https://docs.jboss.org/hibernate/core/4.3/devguide/en-US/html/ch16.html">Hibernate Multi-tenancy</a></li>
+  <li><a target="_blank" href="http://www.mchange.com/projects/c3p0/">C3p0 datasource connection pooling</a></li>
+  <li><a target="_blank" href="http://www.slideshare.net/seges/multitenancy-in-java">Multi-tenancy in Java</a></li>
 </ul>
 
   </div>
