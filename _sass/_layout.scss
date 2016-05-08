@@ -22,22 +22,28 @@
 .site-title {
     font-size: 26px;
     font-weight: 300;
-    line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
     color: $grey-color-light;
 
     &,
-    &:visited {
+    a:visited {
         color: $grey-color-light;
+    }
+    a {
+        display: block;
+        line-height: 56px;
+    }
+    small {
+        font-size: 0.6em;
+        padding-left: 1em;
     }
 }
 
 .site-nav {
     float: right;
     line-height: 56px;
-
     .menu-icon {
         display: none;
     }
