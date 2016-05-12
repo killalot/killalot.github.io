@@ -6,9 +6,55 @@
 </description>
     <link>http://www.ticnfae.co.uk/</link>
     <atom:link href="http://www.ticnfae.co.uk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 May 2016 12:12:58 +0100</pubDate>
-    <lastBuildDate>Sun, 08 May 2016 12:12:58 +0100</lastBuildDate>
+    <pubDate>Thu, 12 May 2016 20:37:39 +0100</pubDate>
+    <lastBuildDate>Thu, 12 May 2016 20:37:39 +0100</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>Diving into Data Science Part 1</title>
+        <description>&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;Some time ago I had decided that I wanted to learn more about data science. I didn’t have a particular sub-topic of data science that I wanted to delve into so I settled upon undergoing a personal project that involved (or had the potential to involve) many different areas.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-data&quot;&gt;What Data&lt;/h2&gt;
+
+&lt;p&gt;To give you some background, I’m a drummer in a band and we recently began the quest for new members. Now something that peeked my interest whilst I was hunting through band advertisements was, what are the statistics of band advertising? Or more specifically I wanted to be able to answer questions like: which city has the greatest number of adverts in relation to its population or what’s the most popular music genre being advertised?&lt;/p&gt;
+
+&lt;p&gt;Where I got the data from was an easy choice. Pretty much of all my experience of searching for musicians is from one site called &lt;a href=&quot;http://www.joinmyband.co.uk&quot;&gt;Join My Band&lt;/a&gt;. Its a good choice since no login is required to access all the posts and they are already categorised into region. An example ad is shown in the screenshot below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/band_ad.png&quot; alt=&quot;Band ad&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-get-the-data&quot;&gt;How to Get the Data&lt;/h2&gt;
+
+&lt;p&gt;Looking back on it, it probably would be have been easier just to ask the site owner for a copy of the data. But I wouldn’t have learnt as much so I guess it worked out just as well.&lt;/p&gt;
+
+&lt;p&gt;I knew that there is technique used to obtain data from a web site called Web Scraping, but I didn’t know anything about it. So I decided to read a book. I had recently learnt the basics of Python so I wanted to do something to cement my knowledge. I found a book on &lt;a href=&quot;https://www.safaribooksonline.com&quot;&gt;Safari Book Online&lt;/a&gt; called Web Scraping with Python which seemed to fit quiet nicely with what I wanted to do. The book lead to me to learn about Scrapy, which is a Python framework for performing web scraping.&lt;/p&gt;
+
+&lt;p&gt;With a web scraping tool found I sought out how to store this advertisement data in order to manipulate it later. I had plenty of options on how, but I decided to use MongoDB as I found that saving a python dictionary to MongoDB is really simple and since I didn’t know much about MongoDB it was a good opportunity to learn. Though at the time of writing, Scrapy did not have built in functionality to export the scraped data to a MongoDB database, but I discovered you can add your own item pipeline. Using the &lt;a href=&quot;http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#write-items-to-mongodb&quot;&gt;Scrapy doc &lt;/a&gt; and this &lt;a href=&quot;https://realpython.com/blog/python/web-scraping-with-scrapy-and-mongodb/&quot;&gt;helpful blog post&lt;/a&gt; I was able to save the data of each band advertisement into a MongoDB database. For each advertisement I was able to scrape:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Region of ad&lt;/li&gt;
+  &lt;li&gt;User entered location, often a city&lt;/li&gt;
+  &lt;li&gt;Text of ad&lt;/li&gt;
+  &lt;li&gt;The username who posted the ad&lt;/li&gt;
+  &lt;li&gt;Time and date of when the ad was posted&lt;/li&gt;
+  &lt;li&gt;Title of the ad&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;run-scrapy-and-wait&quot;&gt;Run Scrapy and Wait.&lt;/h2&gt;
+
+&lt;p&gt;With Scrapy all setup, I set it off running. Luckily the site displays how many ads are currently in each region so I could roughly work out how long it would take to scrape them. It was configured to request a new ad every 3 seconds which meant it took me about 2 weeks on a single machine to gather close to 300,000 ads.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s Next&lt;/h2&gt;
+
+&lt;p&gt;Now that I have the raw data, part 2 of my project will involve summarising the data to produce statistics like a time plot of ads posted per month.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 12 May 2016 20:37:09 +0100</pubDate>
+        <link>http://www.ticnfae.co.uk/2016/05/12/diving-into-data-science-part-1.html</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/2016/05/12/diving-into-data-science-part-1.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Converting to Safari Book Online</title>
