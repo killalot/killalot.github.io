@@ -18,3 +18,5 @@ github_username:  pnicholson
 markdown: kramdown
 
 google_analytics_tracking_id: UA-26245170-3
+
+permalink: /blog/:year/:month/:day/:title/
