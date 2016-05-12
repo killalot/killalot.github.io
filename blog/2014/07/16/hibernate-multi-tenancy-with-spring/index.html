@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hibernate Multi Tenancy with Spring</title>
+  <meta name="description" content="When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possibl...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring/">
+  <link rel="alternate" type="application/rss+xml" title="Ticnfae" href="http://www.ticnfae.co.uk/feed.xml">
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26245170-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+      <div class="site-title">
+          <a href="/">Ticnfae</a>
+          <small>Things. I. Could. Not. Find. Anywhere. Else.</small>
+      </div>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Hibernate Multi Tenancy with Spring</h1>
+    <p class="post-meta"><time datetime="2014-07-16T20:18:54+01:00" itemprop="datePublished">Jul 16, 2014</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>When creating a Multi-Tenant application there are three different strategies which are available to a development team. This post will demonstrate a possible implementation of the separate database approach.</p>
+
+<!-- more -->
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+  <li>Basic knowledge of hibernate and its configuration</li>
+  <li>Basic knowledge of Spring MVC</li>
+  <li>Spring Security</li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<ul>
+  <li>Hibernate 4.3</li>
+  <li>Spring 4.0</li>
+  <li>C3P0 0.9.2</li>
+</ul>
+
+<h2 id="creating-the-shared-database">Creating the Shared Database</h2>
+
+<p>If each tenant is accessing the application via the same URL, you would typically have a master or shared database which would store the full list of users each having a reference to their tenant database.</p>
+
+<p>When a user attempts to login to the application, you would first connect to the shared database to authenticate them e.g. using spring security, and assertain which database they need to connect to.</p>
+
+<p>The shared database will need a minimum of 2 tables: 1 to store the users and another to store the databases. Here is two entity classes to represent this.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nd">@Table</span>
+<span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Database</span><span class="o">{</span>
+
+	<span class="nd">@Id</span>
+	<span class="kd">protected</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+	<span class="cm">/* Optional fields */</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">version</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">server</span><span class="o">;</span> <span class="c1">// if databases are held in multiple servers</span>
+
+	<span class="c1">// getters and setters omitted</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServerUser</span><span class="o">{</span>
+	<span class="nd">@Id</span>
+	<span class="kd">protected</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="n">Boolean</span> <span class="n">administrator</span><span class="o">;</span>
+
+	<span class="nd">@JoinColumn</span>
+	<span class="nd">@ManyToOne</span>
+	<span class="kd">private</span> <span class="n">Database</span> <span class="n">database</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>As an alternative to the shared database you could provide each tenant with a separate URL or make the users provide additional information during login, but I won’t go into details on how to do this here.</p>
+
+<h2 id="hibernate-xml-configuration">Hibernate XML Configuration</h2>
+
+<p>Lets move on to configuring hibernate for multi-tenancy. In this case I will be using XML but it can be easily converted to a Java configuration class. First we’ll look at what the configuration may look without multi-tenancy setup so you can see the difference.</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- beans Root Element omitted --&gt;</span>
+
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"datasource"</span> <span class="na">class=</span><span class="s">"org.apache.commons.dbcp.BasicDataSource"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"initialSize"</span> <span class="na">value=</span><span class="s">"16"</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"minIdle"</span> <span class="na">value=</span><span class="s">"16"</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"maxWait"</span> <span class="na">value=</span><span class="s">"10000"</span> <span class="nt">/&gt;</span>
+	<span class="c">&lt;!-- replace with your driver class --&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"driverClassName"</span> <span class="na">value=</span><span class="s">"com.microsoft.sqlserver.jdbc.SQLServerDriver"</span> <span class="nt">/&gt;</span>
+	<span class="c">&lt;!-- replace with your database url --&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"url"</span> <span class="na">value=</span><span class="s">"jdbc:sqlserver://localhost;databaseName=appDb"</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"username"</span> <span class="na">value=</span><span class="s">"username"</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"password"</span> <span class="na">value=</span><span class="s">"password"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"sessionFactory"</span> <span class="na">class=</span><span class="s">"org.springframework.orm.hibernate4.LocalSessionFactoryBean"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"packagesToScan"</span> <span class="na">value=</span><span class="s">"your.models.package"</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"dataSource"</span> <span class="na">ref=</span><span class="s">"datasource"</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernateProperties"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;props&gt;</span>
+			<span class="c">&lt;!-- Change to suit your database --&gt;</span>
+			<span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">"hibernate.dialect"</span><span class="nt">&gt;</span>org.hibernate.dialect.SQLServer2012Dialect<span class="nt">&lt;/prop&gt;</span>
+		<span class="nt">&lt;/props&gt;</span>
+	<span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre>
+</div>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"sessionFactory"</span> <span class="na">class=</span><span class="s">"org.springframework.orm.hibernate4.LocalSessionFactoryBean"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"packagesToScan"</span> <span class="na">value=</span><span class="s">"your.models.package"</span> <span class="nt">/&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernateProperties"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;props&gt;</span>
+			<span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">"hibernate.dialect"</span><span class="nt">&gt;</span>org.hibernate.dialect.SQLServer2012Dialect<span class="nt">&lt;/prop&gt;</span>				
+			<span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">"hibernate.multiTenancy"</span><span class="nt">&gt;</span>DATABASE<span class="nt">&lt;/prop&gt;</span>
+			<span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">"hibernate.tenant_identifier_resolver"</span><span class="nt">&gt;</span>package.to.your.CurrentTenantIdentifierResolverImpl<span class="nt">&lt;/prop&gt;</span>
+			<span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">"hibernate.multi_tenant_connection_provider"</span><span class="nt">&gt;</span>package.to.your.MultiTenantConnectionProvider<span class="nt">&lt;/prop&gt;</span>
+		<span class="nt">&lt;/props&gt;</span>
+	<span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre>
+</div>
+
+<p>As you can see, additional properties have been provided to the session factory so that it is configured for multi-tenancy. You can refer to the ‘Hibernate Multi-tenancy’ link in the references to understand what these do.</p>
+
+<p>What you will also notice is that the datasource bean has been removed from the configuration. This will be initialised in the MultiTenantConnectionProvider.</p>
+
+<h2 id="currenttenantidentifierresolver">CurrentTenantIdentifierResolver</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="c1">// imports omitted</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CurrentTenantIdentifierResolverImpl</span> <span class="kd">implements</span> <span class="n">CurrentTenantIdentifierResolver</span> <span class="o">{</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="n">resolveCurrentTenantIdentifier</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">Authentication</span> <span class="n">authentication</span> <span class="o">=</span> <span class="n">SecurityContextHolder</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getAuthentication</span><span class="o">();</span>				
+		<span class="n">String</span> <span class="n">database</span> <span class="o">=</span> <span class="s">"shared"</span><span class="o">;</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">authentication</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">authentication</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">()</span> <span class="k">instanceof</span> <span class="n">CustomUserDetails</span><span class="o">){</span>
+			<span class="n">CustomUserDetails</span> <span class="n">user</span> <span class="o">=</span> <span class="o">(</span><span class="n">CustomUserDetails</span><span class="o">)</span> <span class="n">authentication</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">();</span>
+			<span class="n">database</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="na">getDatabaseName</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">database</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="n">validateExistingCurrentSessions</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>This class is used by the MultiTenantConnectionProvider to ascertain the correct tenant identifier for the current hibernate session that has been opened. In this case spring security has been utilised to obtain the database name, which is the tenant identifier that is being used. If the current user is not authenicated, such as when first logging into the server, then the shared database name is given as the identifier.</p>
+
+<p>A custom implementation of the org.springframework.security.core.userdetails.User class - CustomUserDetails has been used in order to store the database name during authentication so that it can be later retrieved here.</p>
+
+<h2 id="multitenantconnectionprovider">MultiTenantConnectionProvider</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MultiTenantConnectionProvider</span> <span class="kd">extends</span> <span class="n">AbstractDataSourceBasedMultiTenantConnectionProviderImpl</span>  <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">6241633589847209550L</span><span class="o">;</span>
+
+	<span class="kd">private</span> <span class="n">ComboPooledDataSource</span> <span class="n">defaultDataSource</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="n">MultiTenantConnectionProvider</span><span class="o">(){</span>
+		<span class="n">defaultDataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComboPooledDataSource</span><span class="o">(</span><span class="s">"shared"</span><span class="o">);</span>
+		<span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setJdbcUrl</span><span class="o">(</span><span class="s">"jdbc:sqlserver://localhost;databaseName=shared"</span><span class="o">);</span>
+		<span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setUser</span><span class="o">(</span><span class="s">"username"</span><span class="o">);</span>
+		<span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"password"</span><span class="o">);</span>
+		<span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setInitialPoolSize</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>
+		<span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setMaxConnectionAge</span><span class="o">(</span><span class="mi">10000</span><span class="o">);</span>
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setDriverClass</span><span class="o">(</span><span class="s">"com.microsoft.sqlserver.jdbc.SQLServerDriver"</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">PropertyVetoException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="c1">// TODO Auto-generated catch block</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="n">DataSource</span> <span class="n">selectAnyDataSource</span><span class="o">(){</span>		
+		<span class="k">return</span> <span class="n">defaultDataSource</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="n">DataSource</span> <span class="n">selectDataSource</span><span class="o">(</span><span class="n">String</span> <span class="n">tenantIdentifier</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">PooledDataSource</span> <span class="n">pds</span> <span class="o">=</span> <span class="n">C3P0Registry</span><span class="o">.</span><span class="na">pooledDataSourceByName</span><span class="o">(</span><span class="n">tenantIdentifier</span><span class="o">);</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">pds</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+			<span class="n">cpds</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComboPooledDataSource</span><span class="o">(</span><span class="n">tenantIdentifier</span><span class="o">);</span>
+			<span class="n">cpds</span><span class="o">.</span><span class="na">setJdbcUrl</span><span class="o">(</span><span class="s">"jdbc:sqlserver://localhost;databaseName="</span> <span class="o">+</span> <span class="n">tenantIdentifier</span><span class="o">);</span>
+			<span class="n">cpds</span><span class="o">.</span><span class="na">setUser</span><span class="o">(</span><span class="s">"username"</span><span class="o">);</span>
+			<span class="n">cpds</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"password"</span><span class="o">);</span>
+			<span class="n">cpds</span><span class="o">.</span><span class="na">setInitialPoolSize</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>
+			<span class="n">cpds</span><span class="o">.</span><span class="na">setMaxConnectionAge</span><span class="o">(</span><span class="mi">10000</span><span class="o">);</span>
+			<span class="k">try</span> <span class="o">{</span>
+				<span class="n">cpds</span><span class="o">.</span><span class="na">setDriverClass</span><span class="o">(</span><span class="s">"com.microsoft.sqlserver.jdbc.SQLServerDriver"</span><span class="o">);</span>
+			<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">PropertyVetoException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+				<span class="c1">// TODO Auto-generated catch block</span>
+				<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+			<span class="o">}</span>
+			<span class="k">return</span> <span class="n">cpds</span><span class="o">;</span>
+
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">pds</span><span class="o">;</span>
+
+
+	<span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>This class provides hibernate with the correct datasource depending on the value of the tenant identifier given to it. During initialisation the class creates the default pooled datasource which is pointing to the shared database. The selectDataSource method uses the static method pooledDataSourceByName of the C3P0Registry to obtain the datasource. If a datasource does not exist for the tenant identifier, then it is lazy initialised and returned. The tenant identifier is provided to the datasource when it is created so that it can be passed to the C3P0Registry as a lookup field when it is needed to be retreived again.</p>
+
+<h2 id="hibernatetransactionmanager-optional">HibernateTransactionManager (Optional)</h2>
+
+<p>If you are using Spring’s HibernateTransactionManager, you will find that when you start up your application it will throw a NullPointerException from the org.springframework.orm.hibernate4.SessionFactoryUtils.getDataSource() method. This is because the dataSource property is no longer being specified in the sessionFactory configuration.</p>
+
+<p>To prevent this exception from occuring, you can add an additional property to its configuration:</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"autodetectDataSource"</span> <span class="na">value=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+<p>## Usage</p>
+
+<p>You can open a hibernate session as you normally expect but now it will interogate the CurrentTenantIdentifierResolver in the background.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">openSession</span><span class="o">();</span>
+</code></pre>
+</div>
+
+<p>You can also specify the tenant identifier manually, which can be useful when authenticating the user or for system administrator methods.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">withOptions</span><span class="o">().</span><span class="na">tenantIdentifier</span><span class="o">(</span><span class="n">tenantId</span><span class="o">).</span><span class="na">openSession</span><span class="o">();</span>
+</code></pre>
+</div>
+
+<p>If you are using Spring’s HibernateTransactionManager, again the method of obtaining a session doesn’t need to change.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">();</span>
+</code></pre>
+</div>
+
+<h3 id="references-and-further-reading">References and Further Reading</h3>
+
+<ul>
+  <li><a target="_blank" href="https://docs.jboss.org/hibernate/core/4.3/devguide/en-US/html/ch16.html">Hibernate Multi-tenancy</a></li>
+  <li><a target="_blank" href="http://www.mchange.com/projects/c3p0/">C3p0 datasource connection pooling</a></li>
+  <li><a target="_blank" href="http://www.slideshare.net/seges/multitenancy-in-java">Multi-tenancy in Java</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ticnfae</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>peter.nicholson1991 at gmail.com</li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/pnicholson"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">pnicholson</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Things. I. Could. Not. Find. Anywhere. Else.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

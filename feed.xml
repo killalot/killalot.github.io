@@ -6,8 +6,8 @@
 </description>
     <link>http://www.ticnfae.co.uk/</link>
     <atom:link href="http://www.ticnfae.co.uk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 May 2016 20:37:39 +0100</pubDate>
-    <lastBuildDate>Thu, 12 May 2016 20:37:39 +0100</lastBuildDate>
+    <pubDate>Thu, 12 May 2016 21:04:26 +0100</pubDate>
+    <lastBuildDate>Thu, 12 May 2016 21:04:26 +0100</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -50,8 +50,8 @@
 &lt;p&gt;Now that I have the raw data, part 2 of my project will involve summarising the data to produce statistics like a time plot of ads posted per month.&lt;/p&gt;
 </description>
         <pubDate>Thu, 12 May 2016 20:37:09 +0100</pubDate>
-        <link>http://www.ticnfae.co.uk/2016/05/12/diving-into-data-science-part-1.html</link>
-        <guid isPermaLink="true">http://www.ticnfae.co.uk/2016/05/12/diving-into-data-science-part-1.html</guid>
+        <link>http://www.ticnfae.co.uk/blog/2016/05/12/diving-into-data-science-part-1/</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/blog/2016/05/12/diving-into-data-science-part-1/</guid>
         
         
       </item>
@@ -87,8 +87,8 @@
 &lt;p&gt;So to conclude, if you are learning in a similar way to how I was, then I suggest that you give Safari a go.&lt;/p&gt;
 </description>
         <pubDate>Sat, 23 May 2015 11:27:52 +0100</pubDate>
-        <link>http://www.ticnfae.co.uk/learning/safari%20books%20online/reading/2015/05/23/converting-to-safari-book-online.html</link>
-        <guid isPermaLink="true">http://www.ticnfae.co.uk/learning/safari%20books%20online/reading/2015/05/23/converting-to-safari-book-online.html</guid>
+        <link>http://www.ticnfae.co.uk/blog/2015/05/23/converting-to-safari-book-online/</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/blog/2015/05/23/converting-to-safari-book-online/</guid>
         
         
         <category>learning</category>
@@ -226,8 +226,8 @@ scanDirectory(startingDirectory); }); ```
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 01 Aug 2014 11:32:20 +0100</pubDate>
-        <link>http://www.ticnfae.co.uk/node.js/mongodb/file%20scanning/2014/08/01/scanning-the-file-system-with-node-dot-js-and-mongodb.html</link>
-        <guid isPermaLink="true">http://www.ticnfae.co.uk/node.js/mongodb/file%20scanning/2014/08/01/scanning-the-file-system-with-node-dot-js-and-mongodb.html</guid>
+        <link>http://www.ticnfae.co.uk/blog/2014/08/01/scanning-the-file-system-with-node-dot-js-and-mongodb/</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/blog/2014/08/01/scanning-the-file-system-with-node-dot-js-and-mongodb/</guid>
         
         
         <category>node.js</category>
@@ -300,8 +300,8 @@ scanDirectory(startingDirectory); }); ```
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 23 Jul 2014 20:37:51 +0100</pubDate>
-        <link>http://www.ticnfae.co.uk/spring,/jasper/2014/07/23/combining-jasper-reports-in-a-spring-controller.html</link>
-        <guid isPermaLink="true">http://www.ticnfae.co.uk/spring,/jasper/2014/07/23/combining-jasper-reports-in-a-spring-controller.html</guid>
+        <link>http://www.ticnfae.co.uk/blog/2014/07/23/combining-jasper-reports-in-a-spring-controller/</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/blog/2014/07/23/combining-jasper-reports-in-a-spring-controller/</guid>
         
         
         <category>Spring,</category>
@@ -312,7 +312,7 @@ scanDirectory(startingDirectory); }); ```
     
       <item>
         <title>Accessing java properties outside spring beans</title>
-        <description>&lt;p&gt;This is a kind of follow up from my &lt;a href=&quot;/spring/hibernate/multi%20tenancy/java/2014/07/16/hibernate-multi-tenancy-with-spring.html&quot;&gt;previous post&lt;/a&gt;. In which I describe an example implementation of a Hibernate MultiTenantConnectionProvider and CurrentTenantIdentifierResolver. Later after writing I thought it would better to abstract the database configuration in these two files into a .properties file - so that the properties can be reused in other areas of the application such as when authenicating a user.&lt;/p&gt;
+        <description>&lt;p&gt;This is a kind of follow up from my &lt;a href=&quot;/blog/2014/07/16/hibernate-multi-tenancy-with-spring/&quot;&gt;previous post&lt;/a&gt;. In which I describe an example implementation of a Hibernate MultiTenantConnectionProvider and CurrentTenantIdentifierResolver. Later after writing I thought it would better to abstract the database configuration in these two files into a .properties file - so that the properties can be reused in other areas of the application such as when authenicating a user.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 &lt;p&gt;Normally when you wish to use a .properties file in a spring application, you define a property placeholder in your context xml (or Java config) like so:&lt;/p&gt;
@@ -349,8 +349,8 @@ scanDirectory(startingDirectory); }); ```
 &lt;p&gt;This way you still access your properties anywhere inside a non-bean class.&lt;/p&gt;
 </description>
         <pubDate>Mon, 21 Jul 2014 06:48:04 +0100</pubDate>
-        <link>http://www.ticnfae.co.uk/spring/4,/java/properties/2014/07/21/accessing-java-properties-outside-spring-beans.html</link>
-        <guid isPermaLink="true">http://www.ticnfae.co.uk/spring/4,/java/properties/2014/07/21/accessing-java-properties-outside-spring-beans.html</guid>
+        <link>http://www.ticnfae.co.uk/blog/2014/07/21/accessing-java-properties-outside-spring-beans/</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/blog/2014/07/21/accessing-java-properties-outside-spring-beans/</guid>
         
         
         <category>spring</category>
@@ -610,8 +610,8 @@ scanDirectory(startingDirectory); }); ```
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 16 Jul 2014 20:18:54 +0100</pubDate>
-        <link>http://www.ticnfae.co.uk/spring/hibernate/multi%20tenancy/java/2014/07/16/hibernate-multi-tenancy-with-spring.html</link>
-        <guid isPermaLink="true">http://www.ticnfae.co.uk/spring/hibernate/multi%20tenancy/java/2014/07/16/hibernate-multi-tenancy-with-spring.html</guid>
+        <link>http://www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring/</link>
+        <guid isPermaLink="true">http://www.ticnfae.co.uk/blog/2014/07/16/hibernate-multi-tenancy-with-spring/</guid>
         
         
         <category>Spring</category>
