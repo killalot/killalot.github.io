@@ -6,8 +6,8 @@
 </description>
     <link>http://www.ticnfae.co.uk/</link>
     <atom:link href="http://www.ticnfae.co.uk/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Jun 2016 06:33:43 +0100</pubDate>
-    <lastBuildDate>Thu, 30 Jun 2016 06:33:43 +0100</lastBuildDate>
+    <pubDate>Thu, 30 Jun 2016 06:38:12 +0100</pubDate>
+    <lastBuildDate>Thu, 30 Jun 2016 06:38:12 +0100</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -78,63 +78,9 @@
 
 &lt;p&gt;Hopefully this refactoring example has given you a glimpse of what is now possible using Java 8 and Spring 4.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 30 Jun 2016 06:33:43 +0100</pubDate>
+        <pubDate>Thu, 30 Jun 2016 06:34:46 +0100</pubDate>
         <link>http://www.ticnfae.co.uk/blog/2016/06/30/refactoring-modelattribute-with-java-8/</link>
         <guid isPermaLink="true">http://www.ticnfae.co.uk/blog/2016/06/30/refactoring-modelattribute-with-java-8/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>From Nothing to Agile</title>
-        <description>&lt;h2 id=&quot;my-story&quot;&gt;My Story&lt;/h2&gt;
-&lt;p&gt;This is an account of how I turned our small collection of programmers into a modern agile development team. What follows is a series of progressive improvements that I have introduced over a period of 3 years. Now every team is different and so don’t think of this as a step by step guide to becoming agile. Think of it as an example from which you can draw from and merge with your own experience to help your team become more agile no matter how far into the journey you are.&lt;/p&gt;
-
-&lt;h2 id=&quot;git-and-github&quot;&gt;Git and Github&lt;/h2&gt;
-
-&lt;p&gt;When I joined the team we were using CVS as our means to keep track of file changes. Our CVS server was a slow and archaic machine, which was probably the first machine CVS was installed onto. At the time I wasn’t particularly aware of the bad points of CVS. I certainly found merging code from the central server a chore but since I had no experience of SCM I was none the wiser. I came across Git a few months into being part of the team. I don’t remember exactly how I became aware of it but I do remember watching this &lt;a href=&quot;https://youtu.be/4XpnKHJAok8&quot;&gt;amazing talk by Linus Torvalds&lt;/a&gt;, which I recommend watching if you haven’t already. This was basically an eye opener for me as far as how you should do SCM.&lt;/p&gt;
-
-&lt;p&gt;Very soon after learning about Git (maybe even at the same time) I heard about GitHub as I way to store your Git repository in the cloud. Though this wasn’t the main reason I was interested in it. What caught my eye was that you can store and maintain issues associated with the repository. This was a great plus point for our team because at the time we didn’t keep a record of current issues in an accessible place. The system we had in place was essentially someone tells you about the problem, usually by coming over to your desk, and then you right it down on a piece of paper (if you remember to) and off you go. Using that system there is no historical record of what was discussed, the programmer just has to make a best guess that this is what they meant.&lt;/p&gt;
-
-&lt;p&gt;So I had decided that I liked Git and GitHub enough that we should try to use it ourselves. First I wanted to see if you can actually convert from CVS to Git with relative ease, I didn’t think there was much point presenting this new technology if I don’t have an easy route to get to it (other than starting from a new repository). Thankfully I found a tool that could do the job I wanted which I think was &lt;a href=&quot;http://cvs2svn.tigris.org/cvs2git.html&quot;&gt;cvs2git&lt;/a&gt;. Next I had to convince the team. This took some time.&lt;/p&gt;
-
-&lt;p&gt;When I initially suggested we move to Git nobody seemed that interested. I didn’t receive any opposition to the idea nor was anyone curious enough to ask more about it. Thinking about it now, I can understand why. Firstly SCM for most people is boring, we had CVS setup and working with no major problems. Nobody wanted to fix what wasn’t broken - it was broken they just didn’t know it. I also suspect our team’s practices hadn’t changed in years. Everyone was comfortable with how things were working and didn’t want to stir the pot. In the end I think it took about a week of pestering to get the approval to go ahead and convert our code base.&lt;/p&gt;
-
-&lt;h2 id=&quot;well-we-should-be-testing&quot;&gt;Well we should be testing&lt;/h2&gt;
-
-&lt;p&gt;Shortly after converting our code base to Git I noticed something - we weren’t testing our code effectively. Our old practice was, when a feature had been completed by the programmers, it was passed on to be manually tested to make sure it doesn’t contain any bugs and was of the right quality. In the meantime us the programmers, move onto the next feature.&lt;/p&gt;
-
-&lt;p&gt;It was typical during this time that a least one bug (more likely several) was found during manual testing. The kind of bugs found varied from say a form input needs to be mandatory to 500 server errors. As you may know, fixing bugs puts a great strain on programmer resources when they are found late on in the development process. So I was concerned that an excessive amount of bugs were being found during manual testing and slowing the whole team down. Simply put, we needed to start unit and integration testing.&lt;/p&gt;
-
-&lt;p&gt;When trying to convincing the team that we needed to start writing tests I was confronted with the same argument, said in slightly different ways. This was that we cannot afford the luxury of writing tests. We have deadlines to uphold and adding tests will only push us further behind schedule. For an person unfamiliar with writing tests it makes sense that adding tests will increase the time it takes to complete a feature. Thankfully this isn’t the case but the difficulty is getting them to believe. Heres how I managed it. I adapted my argument for testing depending the role of the person I was speaking to.&lt;/p&gt;
-
-&lt;p&gt;For M.D.s ,project planners and other high level members of staff:
-- By writing tests we are finding bugs quicker and thus able to fix them earlier in the development process.
-- Less human resources are required to manually test
-- The programmer is very familiar with that code since he has just wrote it making him the ideal person to fix it.&lt;/p&gt;
-
-&lt;h2 id=&quot;manual-testing-is-boring&quot;&gt;Manual testing is boring&lt;/h2&gt;
-
-&lt;h2 id=&quot;scrum-sprint-and-points&quot;&gt;Scrum, sprint and points&lt;/h2&gt;
-
-&lt;h2 id=&quot;gitflow-workflow&quot;&gt;Gitflow workflow&lt;/h2&gt;
-
-&lt;h2 id=&quot;continuous-integration-workflow&quot;&gt;Continuous integration workflow&lt;/h2&gt;
-
-&lt;h2 id=&quot;bump-up-the-quality&quot;&gt;Bump up the Quality&lt;/h2&gt;
-
-&lt;h2 id=&quot;understandable-commit-messages&quot;&gt;Understandable Commit Messages&lt;/h2&gt;
-
-&lt;h2 id=&quot;i-will-review-your-code&quot;&gt;I Will Review Your Code&lt;/h2&gt;
-
-&lt;h2 id=&quot;kanban-board&quot;&gt;Kanban board&lt;/h2&gt;
-
-&lt;h2 id=&quot;never-ending-story&quot;&gt;Never-ending Story&lt;/h2&gt;
-&lt;p&gt;The foresight to reflect&lt;/p&gt;
-</description>
-        <pubDate>Thu, 30 Jun 2016 06:33:43 +0100</pubDate>
-        <link>http://www.ticnfae.co.uk/blog/2016/06/30/from-nothing-to-agile/</link>
-        <guid isPermaLink="true">http://www.ticnfae.co.uk/blog/2016/06/30/from-nothing-to-agile/</guid>
         
         
       </item>
