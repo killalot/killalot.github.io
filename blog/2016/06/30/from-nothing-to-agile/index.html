@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>From Nothing to Agile</title>
+  <meta name="description" content="One programmer's 3 year journey into making an agile team.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.ticnfae.co.uk/blog/2016/06/30/from-nothing-to-agile/">
+  <link rel="alternate" type="application/rss+xml" title="Ticnfae" href="http://www.ticnfae.co.uk/feed.xml">
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26245170-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+      <div class="site-title">
+          <a href="/">Ticnfae</a>
+          <small>Things. I. Could. Not. Find. Anywhere. Else.</small>
+      </div>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">From Nothing to Agile</h1>
+    <p class="post-meta"><time datetime="2016-06-30T06:33:43+01:00" itemprop="datePublished">Jun 30, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="my-story">My Story</h2>
+<p>This is an account of how I turned our small collection of programmers into a modern agile development team. What follows is a series of progressive improvements that I have introduced over a period of 3 years. Now every team is different and so don’t think of this as a step by step guide to becoming agile. Think of it as an example from which you can draw from and merge with your own experience to help your team become more agile no matter how far into the journey you are.</p>
+
+<h2 id="git-and-github">Git and Github</h2>
+
+<p>When I joined the team we were using CVS as our means to keep track of file changes. Our CVS server was a slow and archaic machine, which was probably the first machine CVS was installed onto. At the time I wasn’t particularly aware of the bad points of CVS. I certainly found merging code from the central server a chore but since I had no experience of SCM I was none the wiser. I came across Git a few months into being part of the team. I don’t remember exactly how I became aware of it but I do remember watching this <a href="https://youtu.be/4XpnKHJAok8">amazing talk by Linus Torvalds</a>, which I recommend watching if you haven’t already. This was basically an eye opener for me as far as how you should do SCM.</p>
+
+<p>Very soon after learning about Git (maybe even at the same time) I heard about GitHub as I way to store your Git repository in the cloud. Though this wasn’t the main reason I was interested in it. What caught my eye was that you can store and maintain issues associated with the repository. This was a great plus point for our team because at the time we didn’t keep a record of current issues in an accessible place. The system we had in place was essentially someone tells you about the problem, usually by coming over to your desk, and then you right it down on a piece of paper (if you remember to) and off you go. Using that system there is no historical record of what was discussed, the programmer just has to make a best guess that this is what they meant.</p>
+
+<p>So I had decided that I liked Git and GitHub enough that we should try to use it ourselves. First I wanted to see if you can actually convert from CVS to Git with relative ease, I didn’t think there was much point presenting this new technology if I don’t have an easy route to get to it (other than starting from a new repository). Thankfully I found a tool that could do the job I wanted which I think was <a href="http://cvs2svn.tigris.org/cvs2git.html">cvs2git</a>. Next I had to convince the team. This took some time.</p>
+
+<p>When I initially suggested we move to Git nobody seemed that interested. I didn’t receive any opposition to the idea nor was anyone curious enough to ask more about it. Thinking about it now, I can understand why. Firstly SCM for most people is boring, we had CVS setup and working with no major problems. Nobody wanted to fix what wasn’t broken - it was broken they just didn’t know it. I also suspect our team’s practices hadn’t changed in years. Everyone was comfortable with how things were working and didn’t want to stir the pot. In the end I think it took about a week of pestering to get the approval to go ahead and convert our code base.</p>
+
+<h2 id="well-we-should-be-testing">Well we should be testing</h2>
+
+<p>Shortly after converting our code base to Git I noticed something - we weren’t testing our code effectively. Our old practice was, when a feature had been completed by the programmers, it was passed on to be manually tested to make sure it doesn’t contain any bugs and was of the right quality. In the meantime us the programmers, move onto the next feature.</p>
+
+<p>It was typical during this time that a least one bug (more likely several) was found during manual testing. The kind of bugs found varied from say a form input needs to be mandatory to 500 server errors. As you may know, fixing bugs puts a great strain on programmer resources when they are found late on in the development process. So I was concerned that an excessive amount of bugs were being found during manual testing and slowing the whole team down. Simply put, we needed to start unit and integration testing.</p>
+
+<p>When trying to convincing the team that we needed to start writing tests I was confronted with the same argument, said in slightly different ways. This was that we cannot afford the luxury of writing tests. We have deadlines to uphold and adding tests will only push us further behind schedule. For an person unfamiliar with writing tests it makes sense that adding tests will increase the time it takes to complete a feature. Thankfully this isn’t the case but the difficulty is getting them to believe. Heres how I managed it. I adapted my argument for testing depending the role of the person I was speaking to.</p>
+
+<p>For M.D.s ,project planners and other high level members of staff:
+- By writing tests we are finding bugs quicker and thus able to fix them earlier in the development process.
+- Less human resources are required to manually test
+- The programmer is very familiar with that code since he has just wrote it making him the ideal person to fix it.</p>
+
+<h2 id="manual-testing-is-boring">Manual testing is boring</h2>
+
+<h2 id="scrum-sprint-and-points">Scrum, sprint and points</h2>
+
+<h2 id="gitflow-workflow">Gitflow workflow</h2>
+
+<h2 id="continuous-integration-workflow">Continuous integration workflow</h2>
+
+<h2 id="bump-up-the-quality">Bump up the Quality</h2>
+
+<h2 id="understandable-commit-messages">Understandable Commit Messages</h2>
+
+<h2 id="i-will-review-your-code">I Will Review Your Code</h2>
+
+<h2 id="kanban-board">Kanban board</h2>
+
+<h2 id="never-ending-story">Never-ending Story</h2>
+<p>The foresight to reflect</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ticnfae</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>peter.nicholson1991 at gmail.com</li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/pnicholson"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">pnicholson</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Things. I. Could. Not. Find. Anywhere. Else.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
