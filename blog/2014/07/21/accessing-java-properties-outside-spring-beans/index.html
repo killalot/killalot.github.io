@@ -99,7 +99,7 @@
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">private</span> <span class="n">Properties</span> <span class="n">properties</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="nf">MultiTenantConnectionProvider</span><span class="p">(</span><span class="o">){</span>
+<span class="kd">public</span> <span class="nf">MultiTenantConnectionProvider</span><span class="o">(){</span>
     <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
     <span class="n">ClassLoader</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getContextClassLoader</span><span class="o">();</span>
     <span class="n">InputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">"filename.properties"</span><span class="o">);</span>

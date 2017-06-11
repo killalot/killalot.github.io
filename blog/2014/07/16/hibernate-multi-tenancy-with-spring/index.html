@@ -204,7 +204,7 @@
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CurrentTenantIdentifierResolverImpl</span> <span class="kd">implements</span> <span class="n">CurrentTenantIdentifierResolver</span> <span class="o">{</span>
 
 	<span class="nd">@Override</span>
-	<span class="kd">public</span> <span class="n">String</span> <span class="n">resolveCurrentTenantIdentifier</span><span class="o">()</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">resolveCurrentTenantIdentifier</span><span class="o">()</span> <span class="o">{</span>
 		<span class="n">Authentication</span> <span class="n">authentication</span> <span class="o">=</span> <span class="n">SecurityContextHolder</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getAuthentication</span><span class="o">();</span>				
 		<span class="n">String</span> <span class="n">database</span> <span class="o">=</span> <span class="s">"shared"</span><span class="o">;</span>
 		<span class="k">if</span><span class="o">(</span><span class="n">authentication</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">authentication</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">()</span> <span class="k">instanceof</span> <span class="n">CustomUserDetails</span><span class="o">){</span>
@@ -215,7 +215,7 @@
 	<span class="o">}</span>
 
 	<span class="nd">@Override</span>
-	<span class="kd">public</span> <span class="kt">boolean</span> <span class="n">validateExistingCurrentSessions</span><span class="o">()</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">validateExistingCurrentSessions</span><span class="o">()</span> <span class="o">{</span>
 		<span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
 	<span class="o">}</span>
 
@@ -235,7 +235,7 @@
 
 	<span class="kd">private</span> <span class="n">ComboPooledDataSource</span> <span class="n">defaultDataSource</span><span class="o">;</span>
 
-	<span class="kd">public</span> <span class="n">MultiTenantConnectionProvider</span><span class="o">(){</span>
+	<span class="kd">public</span> <span class="nf">MultiTenantConnectionProvider</span><span class="o">(){</span>
 		<span class="n">defaultDataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComboPooledDataSource</span><span class="o">(</span><span class="s">"shared"</span><span class="o">);</span>
 		<span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setJdbcUrl</span><span class="o">(</span><span class="s">"jdbc:sqlserver://localhost;databaseName=shared"</span><span class="o">);</span>
 		<span class="n">defaultDataSource</span><span class="o">.</span><span class="na">setUser</span><span class="o">(</span><span class="s">"username"</span><span class="o">);</span>
@@ -251,12 +251,12 @@
 	<span class="o">}</span>
 
 	<span class="nd">@Override</span>
-	<span class="kd">protected</span> <span class="n">DataSource</span> <span class="n">selectAnyDataSource</span><span class="o">(){</span>		
+	<span class="kd">protected</span> <span class="n">DataSource</span> <span class="nf">selectAnyDataSource</span><span class="o">(){</span>		
 		<span class="k">return</span> <span class="n">defaultDataSource</span><span class="o">;</span>
 	<span class="o">}</span>
 
 	<span class="nd">@Override</span>
-	<span class="kd">protected</span> <span class="n">DataSource</span> <span class="n">selectDataSource</span><span class="o">(</span><span class="n">String</span> <span class="n">tenantIdentifier</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kd">protected</span> <span class="n">DataSource</span> <span class="nf">selectDataSource</span><span class="o">(</span><span class="n">String</span> <span class="n">tenantIdentifier</span><span class="o">)</span> <span class="o">{</span>
 		<span class="n">PooledDataSource</span> <span class="n">pds</span> <span class="o">=</span> <span class="n">C3P0Registry</span><span class="o">.</span><span class="na">pooledDataSourceByName</span><span class="o">(</span><span class="n">tenantIdentifier</span><span class="o">);</span>
 		<span class="k">if</span><span class="o">(</span><span class="n">pds</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
 			<span class="n">cpds</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComboPooledDataSource</span><span class="o">(</span><span class="n">tenantIdentifier</span><span class="o">);</span>
@@ -294,7 +294,7 @@
 <div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"autodetectDataSource"</span> <span class="na">value=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
 </code></pre>
 </div>
-<p>## Usage</p>
+<h2 id="usage">Usage</h2>
 
 <p>You can open a hibernate session as you normally expect but now it will interogate the CurrentTenantIdentifierResolver in the background.</p>
 

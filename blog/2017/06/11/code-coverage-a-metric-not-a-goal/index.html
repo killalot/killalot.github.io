@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Code Coverage - a metric not a goal</title>
+  <meta name="description" content="In this post I want to talk about how to use code coverage to get the most out of it. Also, and perhaps more important, what code coverage can’t help you wit...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.ticnfae.co.uk/blog/2017/06/11/code-coverage-a-metric-not-a-goal/">
+  <link rel="alternate" type="application/rss+xml" title="Ticnfae" href="http://www.ticnfae.co.uk/feed.xml">
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26245170-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+      <div class="site-title">
+          <a href="/">Ticnfae</a>
+          <small>Things. I. Could. Not. Find. Anywhere. Else.</small>
+      </div>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Code Coverage - a metric not a goal</h1>
+    <p class="post-meta"><time datetime="2017-06-11T21:31:49+01:00" itemprop="datePublished">Jun 11, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>In this post I want to talk about how to use code coverage to get the most out of it. Also, and perhaps more important, what code coverage can’t help you with and how it can be abused.</p>
+
+<h2 id="so-what-is-code-coverage">So What is Code Coverage?</h2>
+
+<p>I know, I know, anybody who reads this should understand what code coverage is but I thought I would start off by providing a definition.</p>
+
+<p>Code Coverage (also known as Test Coverage) is the amount of production code that is executed during testing. Usually when developers talk about code coverage this is the code executed in unit tests. Code coverage doesn’t have to be measured just from unit tests though, it could come from integration tests, functional tests or even manual tests. Admittedly its harder to measure coverage from manually testing but this is still running against production code like any other type of testing so in theory it could contribute to the project’s Code Coverage metric.</p>
+
+<p>Having said that in this article I will be talking about code coverage obtained through tests written as code of which the majority is typically unit tests.</p>
+
+<h2 id="an-easy-metric">An Easy Metric</h2>
+
+<p>I suspect one of the main reasons why Code Coverage has spread across developers and managers alike is because it’s an easy metric. A manager asks “what is our code coverage currently?” and one of the developers responds: “one sec… ah its 87%”. The manager says “that’s 2% up from last month, great thanks” and the manager goes about his business.</p>
+
+<p>I characterize Code Coverage as an easy metric for three reasons:</p>
+
+<ol>
+  <li>
+    <p>It is easy to obtain</p>
+
+    <p>Minimal effort is needed by developers to get this percentage nowadays. There are plenty of libraries out there that provide a means to obtain it, like JaCoCo for Java for instance. Combine this with plugins for IDEs and code quality tools and it almost measures itself.</p>
+  </li>
+  <li>
+    <p>It is easy to understand</p>
+
+    <p>Being a definition that can be contained within a single sentence, you don’t need to do much reading to understand it. There isn’t anything technical in this definition either, if you know what code is and what tests are then you can follow along. This is particularly important as non technical managers can get on board without needing to learn any new terminology. However understanding what Code Coverage is is one thing, knowing how to use it correctly is a different matter which I’ll get into later.</p>
+  </li>
+  <li>
+    <p>It is easy to report</p>
+
+    <p>Being only a single percentage, Code Coverage can easily be passed around between developers and managers alike. Managers can even get the figure themselves if we developers are dumb enough to put it on a dashboard for all to see.</p>
+  </li>
+</ol>
+
+<h2 id="does-high-code-coverage-equal-quality">Does High Code Coverage Equal Quality</h2>
+
+<p>I think the definition makes it quite clear, Code Coverage itself makes no judgment on the quality of the tests or code. If you think it does then I would argue that you are mixing in other methodology, much like I’d say what happens with TDD (not that I’m against TDD per say).</p>
+
+<p>But does making sure you have high test coverage <em>indirectly</em> produce software that has attributes that could be associated with high quality. Well with high coverage I can assume you will have a high number of tests. Tests are needed in order to execute the different paths through your code base and so if your project is anything more than trivial you will need lots of tests to get high coverage. So can we say a high number of tests is a measure of quality, I would say no. Sure a high number of tests is better than some tests which is better than none, but only if we assume they have all been written with the same amount of care. If the tests are not written properly then you could be worse off having high coverage due to the false sense of security and maintenance headache. If you have a good team working on the project from day one then maybe code coverage can be significant to quality but this becomes largely irrelevant anyway as a good team will have high coverage as a byproduct of the practices they follow.</p>
+
+<p>Overall Code Coverage does present itself as easy out but unfortunately quality of software is very hard to measure. It requires a good grasp of software principles and years of experience before you start to understand or even can discuss the components that make up a quality product. As an isolated metric Code Coverage only goes skin deep at best.</p>
+
+<h2 id="code-coverage-induced-damage">Code Coverage Induced Damage</h2>
+
+<p>If you combine its ease of use and thinking that overall code coverage says more about quality than it actually does, you have a recipe for code coverage induced damage.</p>
+
+<p>This is something I have witnessed myself. I had put code coverage on a code quality dashboard thinking that it was a valuable thing to know and whether it was going in the right direction. Though my intentions were good I started noticing things that worried me. Putting it on the board naturally made developers see it as something to improve during slack time and so we had pull requests coming in directly addressing code coverage. Although it was good that more tests were being added, they were being made with the wrong mindset - increasing code coverage. This gave the scope for overlooking attributes that make up a well written test. Now I’m not saying that badly written tests will always result from having code coverage as a goal, but more care does have to taken and you can be more easily lead astray.</p>
+
+<p>Code coverage used in this way is working against you, tempting you to go for the quicker option to get the percentage you’re aiming for.</p>
+
+<h2 id="using-code-coverage-effectively">Using Code Coverage Effectively</h2>
+
+<p>From what I’ve said you might think I want to abandon code coverage all together! Well I do think we should stop using code coverage as an overall metric since, at least in my experience, it causes more trouble than its worth. Rather than using Code Coverage for the project as a whole, we can apply it specifically to the piece code being worked on. I see it being useful in 3 ways:</p>
+
+<ul>
+  <li>
+    <p>To detect potentially missed scenarios</p>
+
+    <p>When writing tests for new or existing code, we have an expectation of the amount of coverage this will give and where in the code base this is located. If you are following TDD for example then you would expect near 100% coverage. You can use Code Coverage as a way to check if your tests are missing any scenarios/paths through the code. Certainly though this isn’t the be all and end all way of checking for untested scenarios as there can be multiple scenarios being dealt with by the same piece of code so Code coverage cannot detect these.</p>
+  </li>
+  <li>
+    <p>Identifying superfluous code</p>
+
+    <p>If you are removing tests and code that are no longer needed (the business needs have changed for example), you can use Code Coverage to highlight any code that was missed during the removal. This is also useful during refactoring - after making some alterations you can check if any code has now been made redundant. When you are writing tests for legacy code, again you can identify potentially redundant code or at very least promotes you to investigate further into what the intension of that code is.</p>
+  </li>
+  <li>
+    <p>Aid understanding of legacy code</p>
+
+    <p>Unfortunately sometimes all you have to work with is a big ball of mud with no tests to guide the way. You can start to get to grips with this by writing a test with some input values and see what happens. Looking at the Code Coverage of this test you can see what parts of the code are being called given these inputs. This should allow you to narrow your focus and begin to clean up that ball of mud.</p>
+  </li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+
+<p>Code Coverage is still a valuable metric providing it is not used as something to directly aim for but rather a tool to help you write better code. Brian Marick I think sums it up nicely:</p>
+
+<blockquote>
+  <p>I wouldn’t have written four coverage tools if I didn’t think they’re helpful. But they’re only helpful if they’re used to enhance thought, not replace it.</p>
+</blockquote>
+
+<h1 id="references-and-further-reading">References and Further Reading</h1>
+
+<ul>
+  <li><a href="https://youtu.be/aCLBd3a1rwk">SwanseaCon 2015: Sandro Mancuso</a></li>
+  <li><a href="https://martinfowler.com/bliki/TestCoverage.html">TestCoverage</a> by Martin Fowler</li>
+  <li><a href="https://youtu.be/dGtasFJnUxI">TDD is dead conversation part IV</a></li>
+  <li><a href="http://www.exampler.com/testing-com/writings/coverage.pdf">How to Misuse Code Coverage</a> by Brian Marick</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ticnfae</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>peter.nicholson1991 at gmail.com</li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/pnicholson"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">pnicholson</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Things. I. Could. Not. Find. Anywhere. Else.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
